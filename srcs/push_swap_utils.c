@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/07 12:56:58 by sting             #+#    #+#             */
+/*   Updated: 2023/12/07 12:57:00 by sting            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 long	ft_atol(const char *str)
@@ -25,15 +37,14 @@ long	ft_atol(const char *str)
 	return (result * sign);
 }
 
-void	delete_list(t_list **list)
+void	delete_list(t_list *list)
 {
 	t_list	*next_node;
 
-	while (*list)
+	while (list)
 	{
-		next_node = (*list)->next;
-		// free((*list)->nbr);
-		free(*list);
-		*list = next_node;
+		next_node = list->next;
+		free (list);
+		list = next_node;
 	}
 }

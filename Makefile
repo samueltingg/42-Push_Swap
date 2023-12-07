@@ -1,12 +1,16 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -std=c99
+CFLAGS = -Wall -Wextra -Werror -std=c99 -fsanitize=address -g
 
 SRCDIR = srcs/
 INCDIR = ../
 LIBFTDIR = libft/
 
 SRCS_FIL = \
-			main.c push_swap_utils.c
+			main.c \
+			push_swap_utils.c \
+			checkers.c \
+			instructions/swap.c \
+			instrucitons/push.c
 SRCS = $(addprefix $(SRCDIR), $(SRCS_FIL))
 
 OBJS = $(SRCS:.c=.o)

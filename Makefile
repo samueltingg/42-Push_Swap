@@ -12,7 +12,8 @@ SRCS_FIL = \
 			instructions/swap.c \
 			instructions/push.c \
 			instructions/rotate.c \
-			instructions/reverse_rotate.c
+			instructions/reverse_rotate.c \
+			sort_under_six.c 
 
 SRCS = $(addprefix $(SRCDIR), $(SRCS_FIL))
 

@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 17:18:18 by sting             #+#    #+#             */
-/*   Updated: 2023/12/08 14:00:32 by sting            ###   ########.fr       */
+/*   Updated: 2023/12/08 15:00:37 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,9 @@ void	rra(t_list **stack_a);
 */
 void	rrb(t_list **stack_b);
 void	rrr(t_list **stack_a, t_list **stack_b);
+
+// SORT UNDER SIX
+void    sort3(t_list **stack);
+
 
 #endif

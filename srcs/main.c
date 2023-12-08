@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:50 by sting             #+#    #+#             */
-/*   Updated: 2023/12/08 13:57:07 by sting            ###   ########.fr       */
+/*   Updated: 2023/12/08 15:01:11 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,11 @@ int main(int argc, char **argv)
     if (is_sorted(stack_a))
         exit (-1);
 
-    t_list  *stack_b;
-
-    stack_b = ft_lstnew_d(10);
-    ft_lstadd_back_d(&stack_b, ft_lstnew_d(11));
-    ft_lstadd_back_d(&stack_b, ft_lstnew_d(9));
+    // stack b
+    // t_list  *stack_b;
+    // stack_b = ft_lstnew_d(10);
+    // ft_lstadd_back_d(&stack_b, ft_lstnew_d(11));
+    // ft_lstadd_back_d(&stack_b, ft_lstnew_d(9));
     
     // check created stack
     t_list *stack2_a = stack_a;
@@ -50,13 +50,13 @@ int main(int argc, char **argv)
         stack2_a = stack2_a->next;
     }
     ft_printf("\n");
-    t_list *stack2_b = stack_b;
-    while (stack2_b != NULL)
-    {
-        ft_printf("nbr_b = %d\n", stack2_b->nbr);    
-        stack2_b = stack2_b->next;
-    }
-    ft_printf("\n");
+    // t_list *stack2_b = stack_b;
+    // while (stack2_b != NULL)
+    // {
+    //     ft_printf("nbr_b = %d\n", stack2_b->nbr);    
+    //     stack2_b = stack2_b->next;
+    // }
+    // ft_printf("\n");
     
 
     nbr_count = ft_lstsize(stack_a);
@@ -65,6 +65,10 @@ int main(int argc, char **argv)
         if (stack_a->nbr > (stack_a->next)->nbr)
             sa(stack_a);
     }
+    else if (nbr_count == 3)
+    {
+        sort3(&stack_a);
+    }
     // ra(&stack_a);
 
     // push check
@@ -72,7 +76,7 @@ int main(int argc, char **argv)
     // pa(&stack_b, &stack_a);
     // pb(&stack_a, &stack_b);
 
-    rrr(&stack_a, &stack_b);
+    // rrr(&stack_a, &stack_b);
     
     // check final stack
     ft_printf("\n------After sort------\n"); 
@@ -86,13 +90,13 @@ int main(int argc, char **argv)
         stack_a = stack_a->next;
     }
     ft_printf("\n");
-    while (stack_b != NULL)
-    {
-        ft_printf("nbr_b = %d\n", stack_b->nbr);
-        if (stack_b->prev)
-            ft_printf("prev = %d\n", stack_b->prev->nbr);    
-        else 
-            ft_printf("prev = NULL\n");
-        stack_b = stack_b->next;
-    }
+    // while (stack_b != NULL)
+    // {
+    //     ft_printf("nbr_b = %d\n", stack_b->nbr);
+    //     if (stack_b->prev)
+    //         ft_printf("prev = %d\n", stack_b->prev->nbr);    
+    //     else 
+    //         ft_printf("prev = NULL\n");
+    //     stack_b = stack_b->next;
+    // }
 }

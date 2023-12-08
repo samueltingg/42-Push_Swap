@@ -10,7 +10,10 @@ SRCS_FIL = \
 			push_swap_utils.c \
 			checkers.c \
 			instructions/swap.c \
-			instrucitons/push.c
+			instructions/push.c \
+			instructions/rotate.c \
+			instructions/reverse_rotate.c
+
 SRCS = $(addprefix $(SRCDIR), $(SRCS_FIL))
 
 OBJS = $(SRCS:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:50 by sting             #+#    #+#             */
-/*   Updated: 2023/12/08 15:01:11 by sting            ###   ########.fr       */
+/*   Updated: 2023/12/10 17:52:39 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,11 @@ int main(int argc, char **argv)
     ft_printf("\n------After sort------\n"); 
     while (stack_a != NULL)
     {
-        ft_printf("nbr_a = %d\n", stack_a->nbr);    
+        ft_printf("\nnbr_a = %d", stack_a->nbr);    
         if (stack_a->prev)
-            ft_printf("prev = %d\n", stack_a->prev->nbr);    
+            ft_printf("    prev = %d", stack_a->prev->nbr);    
         else 
-            ft_printf("prev = NULL\n");
+            ft_printf("    prev = NULL");
         stack_a = stack_a->next;
     }
     ft_printf("\n");
@@ -99,4 +99,6 @@ int main(int argc, char **argv)
     //         ft_printf("prev = NULL\n");
     //     stack_b = stack_b->next;
     // }
+    delete_list(stack_a);
+    
 }

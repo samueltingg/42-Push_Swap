@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:08:25 by sting             #+#    #+#             */
-/*   Updated: 2023/12/08 17:34:35 by sting            ###   ########.fr       */
+/*   Updated: 2023/12/10 17:49:13 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ void	quick_sort(t_list **stack)
 	pv = ft_lstlast(*stack);
 	while (ptr1 && ptr2)
 	{
-		hi
+
 	}
 }

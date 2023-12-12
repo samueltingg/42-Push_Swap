@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:58 by sting             #+#    #+#             */
-/*   Updated: 2023/12/08 13:34:43 by sting            ###   ########.fr       */
+/*   Updated: 2023/12/11 15:29:19 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,10 @@ t_list	*ft_lstnew_d(int nbr)
 
 	new_node = (t_list *)malloc(sizeof(t_list));
 	if (new_node == NULL)
+	{
+		ft_printf("Error\n");
 		return (NULL);
+	}
 	new_node->prev = NULL; // changes
 	new_node->nbr = nbr;
 	new_node->next = NULL;

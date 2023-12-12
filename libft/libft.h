@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 10:23:09 by sting             #+#    #+#             */
-/*   Updated: 2023/12/08 13:35:50 by sting            ###   ########.fr       */
+/*   Updated: 2023/12/11 15:30:05 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,6 @@
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
-
-// typedef struct s_list
-// {
-// 	void			*content;
-// 	struct s_list	*next;
-// }					t_list;
 
 typedef struct s_list
 {

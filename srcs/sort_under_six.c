@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:37:48 by sting             #+#    #+#             */
-/*   Updated: 2023/12/12 08:21:56 by sting            ###   ########.fr       */
+/*   Updated: 2023/12/12 08:26:03 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,4 +56,3 @@ void    insertion_sort(t_list **stack_a, t_list **stack_b)
         current = current->next;
     }
 }
-hello

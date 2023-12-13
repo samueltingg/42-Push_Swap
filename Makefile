@@ -14,8 +14,7 @@ SRCS_FIL = \
 SRCS = $(addprefix $(SRCDIR), $(SRCS_FIL))
 
 OBJDIR = objs/
-OBJS = $(addprefix $(OBJDIR),  $(notdir $(SRCS:.c=.o)))
-
+OBJS = $(addprefix $(OBJDIR), $(notdir $(SRCS:.c=.o)))
 
 LIBFTDIR = libft/
 LIBFT.A = $(LIBFTDIR)libft.a

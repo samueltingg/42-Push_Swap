@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:50 by sting             #+#    #+#             */
-/*   Updated: 2023/12/11 16:50:03 by sting            ###   ########.fr       */
+/*   Updated: 2023/12/12 10:09:32 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int main(int argc, char **argv)
 
     // stack b
     t_list  *stack_b;
+    stack_b = NULL;
     // stack_b = ft_lstnew_d(10);
     // ft_lstadd_back_d(&stack_b, ft_lstnew_d(11));
     // ft_lstadd_back_d(&stack_b, ft_lstnew_d(9));
@@ -65,8 +66,8 @@ int main(int argc, char **argv)
         if (stack_a->nbr > (stack_a->next)->nbr)
             sa(stack_a);
     }
-    // else if (nbr_count == 3)
-    //     sort3(&stack_a);
+    else if (nbr_count == 3)
+        sort3(&stack_a);
     else 
         insertion_sort(&stack_a, &stack_b);
     // ra(&stack_a);

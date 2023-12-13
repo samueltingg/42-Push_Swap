@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 17:18:18 by sting             #+#    #+#             */
-/*   Updated: 2023/12/11 16:49:10 by sting            ###   ########.fr       */
+/*   Updated: 2023/12/12 10:22:45 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	check_duplicates(t_list *head);
 int		is_sorted(t_list *stack);
 
 // INSTRUCTIONS
-void	swap(t_list *stack);
+int		swap(t_list *stack);
 void	sa(t_list *stack_a);
 void	sb(t_list *stack_b);
 void	ss(t_list *stack_a, t_list *stack_b);
@@ -50,12 +50,12 @@ void	pb(t_list **stack_a, t_list **stack_b);
 void	rotate(t_list **stack);
 /**
  * @brief Shift up all elements of stack a by 1.
-          The first element becomes the last one.
+			The first element becomes the last one.
 */
 void	ra(t_list **stack_a);
 /**
  * @brief Shift up all elements of stack a by 1.
-          The first element becomes the last one.
+			The first element becomes the last one.
 */
 void	rb(t_list **stack_b);
 void	rr(t_list **stack_a, t_list **stack_b);
@@ -63,19 +63,18 @@ void	rr(t_list **stack_a, t_list **stack_b);
 void	reverse_rotate(t_list **stack);
 /**
  * @brief Shift down all elements of stack by 1.
-          The last element becomes the first one
+			The last element becomes the first one
 */
 void	rra(t_list **stack_a);
 /**
  * @brief Shift down all elements of stack by 1.
-          The last element becomes the first one
+			The last element becomes the first one
 */
 void	rrb(t_list **stack_b);
 void	rrr(t_list **stack_a, t_list **stack_b);
 
 // SORT UNDER SIX
-void    sort3(t_list **stack);
-void    insertion_sort(t_list **stack_a, t_list **stack_b);
-
+void	sort3(t_list **stack);
+void	insertion_sort(t_list **stack_a, t_list **stack_b);
 
 #endif

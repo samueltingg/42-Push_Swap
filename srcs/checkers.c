@@ -4,15 +4,10 @@ void check_nbr_valid(char *str, t_list *stack)
 {
     long nbr;
 
-    nbr = ft_atol(str);
-    if (nbr > INT_MAX || nbr < INT_MIN)
-    {
-        ft_printf("%s\n", "Error");
-        delete_list(stack);
-        exit(-1);
-    }
     while (*str)
     {
+        if (*str == '-')
+            str++;
         if (!ft_isdigit(*str)) 
         {
             ft_printf("%s\n", "Error");
@@ -20,6 +15,13 @@ void check_nbr_valid(char *str, t_list *stack)
             exit(-1);
         }   
         str++;
+    }
+    nbr = ft_atol(str);
+    if (nbr > INT_MAX || nbr < INT_MIN)
+    {
+        ft_printf("%s\n", "Error");
+        delete_list(stack);
+        exit(-1);
     }
 }
 void check_duplicates(t_list *head)

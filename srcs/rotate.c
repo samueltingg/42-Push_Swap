@@ -6,11 +6,11 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 10:49:43 by sting             #+#    #+#             */
-/*   Updated: 2023/12/08 13:43:00 by sting            ###   ########.fr       */
+/*   Updated: 2023/12/13 12:03:52 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../push_swap.h"
 
 /**
  * @brief Shift up all elements of stack a by 1.

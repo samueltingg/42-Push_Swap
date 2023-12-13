@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:50 by sting             #+#    #+#             */
-/*   Updated: 2023/12/12 10:09:32 by sting            ###   ########.fr       */
+/*   Updated: 2023/12/13 11:33:47 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,9 @@ int main(int argc, char **argv)
     }
     else if (nbr_count == 3)
         sort3(&stack_a);
-    else 
-        insertion_sort(&stack_a, &stack_b);
+    else if (nbr_count == 4 || nbr_count == 5)
+        sort4_or_5(&stack_a, &stack_b, nbr_count);
+
     // ra(&stack_a);
 
     // push check

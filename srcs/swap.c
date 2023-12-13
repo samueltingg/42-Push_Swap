@@ -6,11 +6,11 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:45 by sting             #+#    #+#             */
-/*   Updated: 2023/12/12 10:26:17 by sting            ###   ########.fr       */
+/*   Updated: 2023/12/13 12:06:52 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../push_swap.h"
 
 int swap(t_list *stack)
 {
@@ -30,12 +30,15 @@ int swap(t_list *stack)
 
 void sa(t_list *stack_a)
 {
-    if (swap(stack_a) == -1)
+    if (swap(stack_a) == -1) // remove
         ft_printf("Error(sa): !stack\n");
-    else if (swap(stack_a) == -2)
+    else if (swap(stack_a) == -2) // remove
         ft_printf("Error(sa): !stack->next\n");
     else 
+    {
+        swap(stack_a);
         ft_printf("sa\n");
+    }
 }
 
 void sb(t_list *stack_b)

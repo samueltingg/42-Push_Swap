@@ -6,10 +6,10 @@ SRCS_FIL = \
 			main.c \
 			push_swap_utils.c \
 			checkers.c \
-			swap.c \
-			push.c \
-			rotate.c \
-			reverse_rotate.c \
+			i_swap.c \
+			i_push.c \
+			i_rotate.c \
+			i_reverse_rotate.c \
 			sort_under_six.c 
 SRCS = $(addprefix $(SRCDIR), $(SRCS_FIL))
 

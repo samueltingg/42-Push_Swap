@@ -11,7 +11,9 @@ SRCS_FIL = \
 			i_rotate.c \
 			i_reverse_rotate.c \
 			sort_under_six.c \
-			assign_index.c
+			assign_index.c \
+			list_functions.c \
+			split_chunk.c
 SRCS = $(addprefix $(SRCDIR), $(SRCS_FIL))
 
 OBJDIR = objs/

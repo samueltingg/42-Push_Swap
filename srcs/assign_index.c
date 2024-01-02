@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quick_sort.c                                       :+:      :+:    :+:   */
+/*   assign_index.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:08:25 by sting             #+#    #+#             */
-/*   Updated: 2023/12/10 17:49:13 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/02 13:33:11 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	quick_sort(t_list **stack)
+void assign_index(t_list *stack)
 {
-	t_list *ptr1;
-	t_list *ptr2;
-	t_list *pv;
-
-	ptr1 = *stack;
-	ptr2 = *stack;
-	pv = ft_lstlast(*stack);
-	while (ptr1 && ptr2)
+	t_list *tmp1;
+	t_list *tmp2;
+	int	count;
+	
+	tmp1 = stack;
+	while (tmp1)
 	{
-
+		count = 0;
+		tmp2 = stack;
+		while (tmp2)
+		{
+			if (tmp1->nbr > tmp2->nbr) 
+				count++;
+			tmp2 = tmp2->next;
+		}
+		tmp1->index = count + 1;
+		tmp1 = tmp1->next;
 	}
 }
+
+/*
+- index = amount of nbrs less than current nbr + 1
+*/
+
+

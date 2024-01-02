@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 17:18:18 by sting             #+#    #+#             */
-/*   Updated: 2023/12/13 11:35:16 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/02 13:28:59 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,10 @@ void	sort3(t_list **stack);
 void	insertion_sort(t_list **stack_a, t_list **stack_b);
 /**
  * @brief sorts 4/5 numbers, implements insertion sort & "sort3"
-*/
-void sort4_or_5(t_list **stack_a, t_list **stack_b, int nbr_count);
+ */
+void	sort4_or_5(t_list **stack_a, t_list **stack_b, int nbr_count);
+
+// Assigning index
+void assign_index(t_list *stack);
 
 #endif

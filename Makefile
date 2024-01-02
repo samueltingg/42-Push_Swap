@@ -4,13 +4,14 @@ CFLAGS = -Wall -Wextra -Werror -std=c99 -fsanitize=address -g
 SRCDIR = srcs/
 SRCS_FIL = \
 			main.c \
-			push_swap_utils.c \
+			utils.c \
 			checkers.c \
 			i_swap.c \
 			i_push.c \
 			i_rotate.c \
 			i_reverse_rotate.c \
-			sort_under_six.c 
+			sort_under_six.c \
+			assign_index.c
 SRCS = $(addprefix $(SRCDIR), $(SRCS_FIL))
 
 OBJDIR = objs/

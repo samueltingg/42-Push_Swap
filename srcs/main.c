@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:50 by sting             #+#    #+#             */
-/*   Updated: 2023/12/13 16:34:16 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/02 13:31:41 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int main(int argc, char **argv)
     t_list  *stack_b;
     stack_b = NULL;
     
-    // check created stack
+    // check created stack 
     t_list *stack2_a = stack_a;
     while (stack2_a != NULL)
     {
@@ -56,6 +56,8 @@ int main(int argc, char **argv)
     // }
     // ft_printf("\n");
 
+    
+
     nbr_count = ft_lstsize(stack_a);
     if (nbr_count == 2)
     {
@@ -66,7 +68,21 @@ int main(int argc, char **argv)
         sort3(&stack_a);
     else if (nbr_count == 4 || nbr_count == 5)
         sort4_or_5(&stack_a, &stack_b, nbr_count);
+    // else if (nbr_count > 5)
+    // {
+    // }
     
+    // CHECK: Assigned Index (working)
+    // assign_index(stack_a);
+    // t_list *tmp = stack_a;
+    // while (tmp)
+    // {
+    //     printf("%i ->", tmp->nbr);
+    //     printf("index: %i\n", tmp->index);
+    //     tmp = tmp->next;
+    // }
+    
+     
     // check final stack
     ft_printf("\n------After sort------\n"); 
     while (stack_a != NULL)

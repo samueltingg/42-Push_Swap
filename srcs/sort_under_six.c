@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:37:48 by sting             #+#    #+#             */
-/*   Updated: 2023/12/13 12:09:01 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/03 10:05:13 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	sort3(t_list **stack)
 		sa(*stack);
 }
 
-static int	find_smallest(t_list *stack)
+static int	find_smallest_nbr(t_list *stack)
 {
 	int	smallest;
 
@@ -75,7 +75,7 @@ void	insertion_sort(t_list **stack_a, t_list **stack_b)
 
 	while (*stack_a)
 	{
-		smallest = find_smallest(*stack_a);
+		smallest = find_smallest_nbr(*stack_a);
 		if (if_smallest_in_bottom_half(*stack_a, smallest))
 		{
 			while ((*stack_a)->nbr != smallest)
@@ -100,7 +100,7 @@ void	sort4_or_5(t_list **stack_a, t_list **stack_b, int nbr_count)
 	i = nbr_count - 3;
 	while (i--)
 	{
-		smallest = find_smallest(*stack_a);
+		smallest = find_smallest_nbr(*stack_a);
 		if (if_smallest_in_bottom_half(*stack_a, smallest))
 		{
 			while ((*stack_a)->nbr != smallest)

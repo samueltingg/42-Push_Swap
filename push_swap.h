@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 17:18:18 by sting             #+#    #+#             */
-/*   Updated: 2024/01/02 13:28:59 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/03 14:11:04 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,69 +19,89 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-// UTILS
-long	ft_atol(const char *str);
-void	delete_list(t_list *list);
+enum			e_loc
+{
+	TOP_A,
+	BOT_A,
+	TOP_B,
+	BOT_B
+};
 
-t_list	*ft_lstnew_d(int nbr);
-void	ft_lstadd_back_d(t_list **lst, t_list *new);
+typedef struct s_chunk
+{
+	enum e_loc	loc;
+}				t_chunk;
+
+typedef struct s_split_destt
+{
+	t_chunk		min;
+	t_chunk		mid;
+	t_chunk		max;
+}				t_split_dest;
+
+// UTILS
+long			ft_atol(const char *str);
+void			delete_list(t_list *list);
+
+t_list			*ft_lstnew_d(int nbr);
+void			ft_lstadd_back_d(t_list **lst, t_list *new);
 
 // CHECKING
-void	check_nbr_valid(char *str, t_list *stack);
-void	check_duplicates(t_list *head);
-int		is_sorted(t_list *stack);
+void			check_nbr_valid(char *str, t_list *stack);
+void			check_duplicates(t_list *head);
+int				is_sorted(t_list *stack);
 
 // INSTRUCTIONS
-int		swap(t_list *stack);
-void	sa(t_list *stack_a);
-void	sb(t_list *stack_b);
-void	ss(t_list *stack_a, t_list *stack_b);
+int				swap(t_list *stack);
+void			sa(t_list *stack_a);
+void			sb(t_list *stack_b);
+void			ss(t_list *stack_a, t_list *stack_b);
 
-void	push(t_list **stack_x, t_list **stack_y);
+void			push(t_list **stack_x, t_list **stack_y);
 /**
  * @brief Take 1st element at top of b and put it at top of a
  */
-void	pa(t_list **stack_b, t_list **stack_a);
+void			pa(t_list **stack_b, t_list **stack_a);
 /**
  * @brief Take 1st element at top of a and put it at top of b
  */
-void	pb(t_list **stack_a, t_list **stack_b);
+void			pb(t_list **stack_a, t_list **stack_b);
 
-void	rotate(t_list **stack);
+void			rotate(t_list **stack);
 /**
  * @brief Shift up all elements of stack a by 1.
 			The first element becomes the last one.
 */
-void	ra(t_list **stack_a);
+void			ra(t_list **stack_a);
 /**
  * @brief Shift up all elements of stack a by 1.
 			The first element becomes the last one.
 */
-void	rb(t_list **stack_b);
-void	rr(t_list **stack_a, t_list **stack_b);
+void			rb(t_list **stack_b);
+void			rr(t_list **stack_a, t_list **stack_b);
 
-void	reverse_rotate(t_list **stack);
+void			reverse_rotate(t_list **stack);
 /**
  * @brief Shift down all elements of stack by 1.
 			The last element becomes the first one
 */
-void	rra(t_list **stack_a);
+void			rra(t_list **stack_a);
 /**
  * @brief Shift down all elements of stack by 1.
 			The last element becomes the first one
 */
-void	rrb(t_list **stack_b);
-void	rrr(t_list **stack_a, t_list **stack_b);
+void			rrb(t_list **stack_b);
+void			rrr(t_list **stack_a, t_list **stack_b);
 
 // SORT UNDER SIX
-void	sort3(t_list **stack);
-void	insertion_sort(t_list **stack_a, t_list **stack_b);
+void			sort3(t_list **stack);
+void			insertion_sort(t_list **stack_a, t_list **stack_b);
 /**
  * @brief sorts 4/5 numbers, implements insertion sort & "sort3"
  */
-void	sort4_or_5(t_list **stack_a, t_list **stack_b, int nbr_count);
+void			sort4_or_5(t_list **stack_a, t_list **stack_b, int nbr_count);
 
 // Assigning index
-void assign_index(t_list *stack);
+void			assign_index(t_list *stack);
 
 #endif

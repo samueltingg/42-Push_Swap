@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:08:25 by sting             #+#    #+#             */
-/*   Updated: 2024/01/03 14:33:15 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/04 13:54:52 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,29 +70,47 @@ void set_split_loc(enum e_loc loc, t_chunk *min, t_chunk *mid, t_chunk *max)
 	}
 }
 
-void partition(t_list **stack_a, t_list **stack_b, enum e_loc cur_loc)
+void init_chunk_size(t_split_dest *dest)
+{
+	dest->min.size = 0;
+	dest->mid.size = 0;
+	dest->max.size = 0;
+}
+
+void partition(t_list **stack_a, t_list **stack_b, enum e_loc cur_loc, int cur_chunk_size)
 {
     int small_pivot;
     int large_pivot;
     int max_index;
     int min_index;
-	t_split_dest *sd;
+	t_split_dest *dest; // create new set of split_dest for each partition
+	t_list *node;
     
+	init_chunk_size(dest);
     small_pivot = max_index - (max_index - min_index) * (1.0 / 3);
     large_pivot = max_index - (max_index - min_index) * (2.0 / 3);
     
-	set_split_loc(cur_loc, &(sd->min), &(sd->mid), &(sd->max));
-	
-    while (*stack_a) 
-    {
-        if ((*stack_a)->index <= small_pivot) // MIN
+	set_split_loc(cur_loc, &(dest->min), &(dest->mid), &(dest->max));
+
+    while (cur_chunk_size)     
+	{
+		if (cur_loc == TOP_A)
+			node = *stack_a;
+		else if (cur_loc == BOT_A)
+			node = ft_lstlast(*stack_b);	
+		else if (cur_loc == TOP_B)
+			node = *stack_b;
+		else if (cur_loc == BOT_B)
+			node = ft_lstlast(*stack_b);
 			
-        if ((*stack_a)->index > small_pivot && (*stack_a)->index <= large_pivot) // MID 
-        if ((*stack_a)->index > large_pivot) // MAX
+        if (node->index <= small_pivot) // MIN
+			
+        else if (node->index > small_pivot && node->index <= large_pivot) // MID 
+        else if (node->index > large_pivot) // MAX
 			
     }
 }
-void quick_sort3()
-{
+// void quick_sort3()
+// {
 	
-}
+// }

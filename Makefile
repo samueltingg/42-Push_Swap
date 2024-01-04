@@ -12,12 +12,15 @@ SRCS_FIL = \
 			i_reverse_rotate.c \
 			sort_under_six.c \
 			assign_index.c \
-			list_functions.c \
-			split_chunk.c
+			list_functions.c 
+			
+			# split_chunk.c
+
 SRCS = $(addprefix $(SRCDIR), $(SRCS_FIL))
 
 OBJDIR = objs/
 OBJS = $(addprefix $(OBJDIR), $(notdir $(SRCS:.c=.o)))
+
 
 LIBFTDIR = libft/
 LIBFT.A = $(LIBFTDIR)libft.a

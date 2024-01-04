@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 17:18:18 by sting             #+#    #+#             */
-/*   Updated: 2024/01/03 14:11:04 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/04 10:48:16 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ enum			e_loc
 typedef struct s_chunk
 {
 	enum e_loc	loc;
+	int			size;
 }				t_chunk;
 
 typedef struct s_split_destt

@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 17:18:18 by sting             #+#    #+#             */
-/*   Updated: 2024/01/04 10:48:16 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/04 16:08:31 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,5 +104,15 @@ void			sort4_or_5(t_list **stack_a, t_list **stack_b, int nbr_count);
 
 // Assigning index
 void			assign_index(t_list *stack);
+
+// 3-way Quick Sort
+void partition(t_list **stack_a, t_list **stack_b, enum e_loc cur_loc, int cur_chunk_size);
+int	move_from_to(enum e_loc from, enum e_loc to, t_list **stack_a, t_list **stack_b);
+void move_from_top_a(t_list **stack_a, t_list **stack_b, enum e_loc to);
+void move_from_top_b(t_list **stack_a, t_list **stack_b, enum e_loc to);
+void move_from_bottom_a(t_list **stack_a, t_list **stack_b, enum e_loc to);
+void move_from_bottom_b(t_list **stack_a, t_list **stack_b, enum e_loc to);
+
+t_list	*starting_node(t_list *stack_a, t_list *stack_b, enum e_loc cur_loc); // tmp
 
 #endif

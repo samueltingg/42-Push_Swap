@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:50 by sting             #+#    #+#             */
-/*   Updated: 2024/01/02 15:53:22 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/04 16:36:33 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,10 @@ int main(int argc, char **argv)
     //     printf("index: %i\n", tmp->index);
     //     tmp = tmp->next;
     // }
+   
+    assign_index(stack_a);
+    // CHECK: Partition
+    partition(&stack_a, &stack_b, TOP_A, nbr_count);
     
      
     // check final stack
@@ -89,21 +93,22 @@ int main(int argc, char **argv)
     while (stack_a != NULL)
     {
         ft_printf("\nnbr_a = %d", stack_a->nbr);    
-        if (stack_a->prev)
-            ft_printf("    prev = %d", stack_a->prev->nbr);    
-        else 
-            ft_printf("    prev = NULL");
+        // if (stack_a->prev)
+        //     ft_printf("    prev = %d", stack_a->prev->nbr);    
+        // else 
+        //     ft_printf("    prev = NULL");
         stack_a = stack_a->next;
     }
     ft_printf("\n");
-    // while (stack_b != NULL)
-    // {
-    //     ft_printf("nbr_b = %d\n", stack_b->nbr);
-    //     if (stack_b->prev)
-    //         ft_printf("prev = %d\n", stack_b->prev->nbr);    
-    //     else 
-    //         ft_printf("prev = NULL\n");
-    //     stack_b = stack_b->next;
-    // }
+    while (stack_b != NULL)
+    {
+        printf("check");
+        ft_printf("nbr_b = %d\n", stack_b->nbr);
+        // if (stack_b->prev)
+        //     ft_printf("prev = %d\n", stack_b->prev->nbr);    
+        // else 
+        //     ft_printf("prev = NULL\n");
+        stack_b = stack_b->next;
+    }
     delete_list(stack_a);
 }

@@ -6,13 +6,13 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:08:25 by sting             #+#    #+#             */
-/*   Updated: 2024/01/04 14:20:49 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/04 14:34:20 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	move_from_to(t_list **stack_a, t_list **stack_b, enum e_loc from, enum e_loc to)
+int	move_from_to(enum e_loc from, enum e_loc to, t_list **stack_a, t_list **stack_b)
 {
 	if (from == TOP_A)
 		move_from_top_a(stack_a, stack_b, to);

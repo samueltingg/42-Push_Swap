@@ -12,9 +12,9 @@ SRCS_FIL = \
 			i_reverse_rotate.c \
 			sort_under_six.c \
 			assign_index.c \
-			list_functions.c 
-			
-			# split_chunk.c
+			list_functions.c \
+			split_chunk.c \
+			move.c \
 
 SRCS = $(addprefix $(SRCDIR), $(SRCS_FIL))
 

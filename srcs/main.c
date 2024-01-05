@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:50 by sting             #+#    #+#             */
-/*   Updated: 2024/01/05 10:05:29 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/05 12:01:41 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,9 +70,9 @@ int main(int argc, char **argv)
         sort3(&stack_a);
     else if (nbr_count == 4 || nbr_count == 5)
         sort4_or_5(&stack_a, &stack_b, nbr_count);
-    // else if (nbr_count > 5)
-    // {
-    // }
+    else if (nbr_count > 5)
+    {
+    }
 
     // CHECK: Assigned Index (working)
     // assign_index(stack_a);
@@ -86,7 +86,7 @@ int main(int argc, char **argv)
 
     assign_index(stack_a);
     // CHECK: Partition
-    partition(&stack_a, &stack_b, TOP_A, nbr_count);
+    partition(&stack_a, &stack_b, BOT_A, nbr_count);
 
 
     // check final stack

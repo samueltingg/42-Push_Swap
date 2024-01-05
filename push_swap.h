@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 17:18:18 by sting             #+#    #+#             */
-/*   Updated: 2024/01/05 10:43:14 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/05 12:25:36 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,9 @@ void			check_duplicates(t_list *head);
 int				is_sorted(t_list *stack);
 
 // INSTRUCTIONS
+/**
+ * @brief swaps 2 int values without moving nodes
+*/
 int				swap(t_list *stack);
 void			sa(t_list *stack_a);
 void			sb(t_list *stack_b);
@@ -106,7 +109,7 @@ void			sort4_or_5(t_list **stack_a, t_list **stack_b, int nbr_count);
 void			assign_index(t_list *stack);
 
 // 3-way Quick Sort
-void partition(t_list **stack_a, t_list **stack_b, enum e_loc cur_loc, int cur_chunk_size);
+t_split_dest *partition(t_list **stack_a, t_list **stack_b, enum e_loc cur_loc, int cur_chunk_size);
 int	move_from_to(enum e_loc from, enum e_loc to, t_list **stack_a, t_list **stack_b);
 void move_from_top_a(t_list **stack_a, t_list **stack_b, enum e_loc to);
 void move_from_top_b(t_list **stack_a, t_list **stack_b, enum e_loc to);

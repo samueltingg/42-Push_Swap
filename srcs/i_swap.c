@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:45 by sting             #+#    #+#             */
-/*   Updated: 2024/01/04 10:38:31 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/05 11:42:39 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void sa(t_list *stack_a)
         ft_printf("Error(sa): !stack\n");
     else if (swap(stack_a) == -2) // remove
         ft_printf("Error(sa): !stack->next\n");
-    else 
+    else
     {
         swap(stack_a);
         ft_printf("sa\n");

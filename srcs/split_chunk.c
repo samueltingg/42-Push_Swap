@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:08:25 by sting             #+#    #+#             */
-/*   Updated: 2024/01/05 10:58:34 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/05 12:37:15 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void init_chunk_size(t_split_dest *dest) // TESTED
 	dest->max.size = 0;
 }
 
-void partition(t_list **stack_a, t_list **stack_b, enum e_loc cur_loc, int cur_chunk_size)
+t_split_dest *partition(t_list **stack_a, t_list **stack_b, enum e_loc cur_loc, int cur_chunk_size)
 {
     int small_pivot;
     int large_pivot;
@@ -139,9 +139,53 @@ void partition(t_list **stack_a, t_list **stack_b, enum e_loc cur_loc, int cur_c
 		cur_chunk_size--; // ?? risky if somehow didn't enter any if statement
     }
 	printf("\nmin->size: %i\nmid->size: %i\nmax->size: %i\n", dest->min.size, dest->mid.size, dest->max.size);
+	// ^^ remove
 	free(dest);
+	return(dest);
 }
-// void quick_sort3()
-// {
+/*
+{
+		BASE CASE ->
+			if (chunk_size == 1)
+					push/rotate(depends on loc) to TOP_A
+			else if (chunk_size == 2)
+					push/rotate(depends on loc) to TOP_A
+					if not sorted (if nbr > nbr->next)
+						swap
 
-// }
+		else
+			partition(stack_a, stack_b, cur_loc, cur_chunksize) // max
+			qs(stack_a, stack_b, max->loc, max->size)
+
+			partition(stack_a, stack_b, cur_loc, cur_chunksize) // mid
+			qs(stack_a, stack_b, mid->loc, mid->size)
+
+			partition(stack_a, stack_b, cur_loc, cur_chunksize) // min
+			qs(stack_a, stack_b, min->loc, min->size)
+} */
+
+
+void quick_sort3(t_list **stack_a, t_list **stack_b, enum e_loc cur_loc, int cur_chunksize)
+{
+
+	if (cur_chunksize == 1)
+		move_from_to(cur_loc, TOP_A, stack_a, stack_b);
+	else if (cur_chunksize == 2) // [] TO TEST
+	{
+		move_from_to(cur_loc, TOP_A, stack_a, stack_b);
+		move_from_to(cur_loc, TOP_A, stack_a, stack_b);
+		if ((*stack_a)->nbr > ((*stack_a)->next)->nbr)
+			swap(*stack_a);
+	}
+	else if (cur_chunksize > 2) // STOPPED HERE 5/1/24
+	{
+		partition(stack_a, stack_b, cur_loc, cur_chunksize); // max
+		quick_sort3(stack_a, stack_b, max->loc, max->size);
+
+		partition(stack_a, stack_b, cur_loc, cur_chunksize); // mid
+		quick_sort3(stack_a, stack_b, mid->loc, mid->size);
+
+		partition(stack_a, stack_b, cur_loc, cur_chunksize);// min
+		quick_sort3(stack_a, stack_b, min->loc, min->size);
+	}
+}

@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 10:49:43 by sting             #+#    #+#             */
-/*   Updated: 2024/01/04 10:38:28 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/05 10:56:28 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	rotate(t_list **stack)
 	first_node = *stack;
 	last_node = ft_lstlast(*stack);
 	*stack = first_node->next;
-	(*stack)->prev = NULL;
+	(*stack)->prev = NULL; // ISSUE !!!
 	last_node->next = first_node;
 	first_node->prev = last_node;
 	first_node->next = NULL;
@@ -32,18 +32,26 @@ void	rotate(t_list **stack)
 
 void	ra(t_list **stack_a)
 {
+	if ((*stack_a)->next == NULL)
+		return;
 	rotate(stack_a);
 	ft_printf("ra\n");
 }
 
 void	rb(t_list **stack_b)
 {
+	if ((*stack_b)->next == NULL)
+		return;
 	rotate(stack_b);
 	ft_printf("rb\n");
 }
 
 void	rr(t_list **stack_a, t_list **stack_b)
 {
+	if ((*stack_a)->next == NULL)
+		return;
+	if ((*stack_b)->next == NULL)
+		return;
     rotate(stack_a);
 	rotate(stack_b);
 	ft_printf("rr\n");
@@ -53,6 +61,6 @@ void	rr(t_list **stack_a, t_list **stack_b)
 - store first_node
 - switch *stack_a to point to first_node->next
 - ft_lstlast->next = first node
-- first_node->prev = 
+- first_node->prev =
 - set first_node->next = NULL
 */

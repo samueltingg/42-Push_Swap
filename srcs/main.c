@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:50 by sting             #+#    #+#             */
-/*   Updated: 2024/01/04 16:36:33 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/05 10:05:29 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ int main(int argc, char **argv)
     stack_a = NULL;
     if (argc <= 2)
         return (-1);
-    
+
     // create stack
     i = 1;
-    while (argv[i] != NULL) 
+    while (argv[i] != NULL)
     {
         check_nbr_valid(argv[i], stack_a); // ERROR CHECKING
         new = ft_lstnew_d(ft_atoi(argv[i])); // malloc
@@ -34,30 +34,31 @@ int main(int argc, char **argv)
     }
     check_duplicates(stack_a); // ERROR CHECKING
     if (is_sorted(stack_a))
-        exit (-1);  
+        exit (-1);
     // ---------------------------------------------
-    
+
     // stack b
     t_list  *stack_b;
     stack_b = NULL;
-    
-    // check created stack 
+
+    // check created stack
     t_list *stack2_a = stack_a;
+    printf("\nStack Creation\n");
     while (stack2_a != NULL)
     {
-        ft_printf("nbr_a = %d\n", stack2_a->nbr);    
+        printf("nbr_a = %d\n", stack2_a->nbr);
         stack2_a = stack2_a->next;
     }
-    ft_printf("\n");
+    printf("\n");
     // t_list *stack2_b = stack_b;
     // while (stack2_b != NULL)
     // {
-    //     ft_printf("nbr_b = %d\n", stack2_b->nbr);    
+    //     printf("nbr_b = %d\n", stack2_b->nbr);
     //     stack2_b = stack2_b->next;
     // }
-    // ft_printf("\n");
+    // printf("\n");
 
-    
+
 
     nbr_count = ft_lstsize(stack_a);
     if (nbr_count == 2)
@@ -72,7 +73,7 @@ int main(int argc, char **argv)
     // else if (nbr_count > 5)
     // {
     // }
-    
+
     // CHECK: Assigned Index (working)
     // assign_index(stack_a);
     // t_list *tmp = stack_a;
@@ -82,32 +83,33 @@ int main(int argc, char **argv)
     //     printf("index: %i\n", tmp->index);
     //     tmp = tmp->next;
     // }
-   
+
     assign_index(stack_a);
     // CHECK: Partition
     partition(&stack_a, &stack_b, TOP_A, nbr_count);
-    
-     
+
+
     // check final stack
-    ft_printf("\n------After sort------\n"); 
+    printf("\n------After sort------\n");
+    printf("-- Stack A --");
     while (stack_a != NULL)
     {
-        ft_printf("\nnbr_a = %d", stack_a->nbr);    
+        printf("\nnbr_a = %d", stack_a->nbr);
         // if (stack_a->prev)
-        //     ft_printf("    prev = %d", stack_a->prev->nbr);    
-        // else 
-        //     ft_printf("    prev = NULL");
+        //     printf("    prev = %d", stack_a->prev->nbr);
+        // else
+        //     printf("    prev = NULL");
         stack_a = stack_a->next;
     }
-    ft_printf("\n");
+    printf("\n");
+    printf("\n--Stack B--\n");
     while (stack_b != NULL)
     {
-        printf("check");
-        ft_printf("nbr_b = %d\n", stack_b->nbr);
+        printf("nbr_b = %d\n", stack_b->nbr);
         // if (stack_b->prev)
-        //     ft_printf("prev = %d\n", stack_b->prev->nbr);    
-        // else 
-        //     ft_printf("prev = NULL\n");
+        //     printf("prev = %d\n", stack_b->prev->nbr);
+        // else
+        //     printf("prev = NULL\n");
         stack_b = stack_b->next;
     }
     delete_list(stack_a);

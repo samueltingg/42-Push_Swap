@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 13:13:22 by sting             #+#    #+#             */
-/*   Updated: 2024/01/04 10:38:26 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/05 11:02:42 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,26 @@ void reverse_rotate(t_list **stack)
 
 void	rra(t_list **stack_a)
 {
+	if ((*stack_a)->next == NULL)
+		return;
 	reverse_rotate(stack_a);
 	ft_printf("rra\n");
 }
 
 void	rrb(t_list **stack_b)
 {
+	if ((*stack_b)->next == NULL)
+		return;
 	reverse_rotate(stack_b);
 	ft_printf("rrb\n");
 }
 
 void	rrr(t_list **stack_a, t_list **stack_b)
 {
+	if ((*stack_a)->next == NULL)
+		return;
+	if ((*stack_b)->next == NULL)
+		return;
     reverse_rotate(stack_a);
 	reverse_rotate(stack_b);
 	ft_printf("rrr\n");

@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:50 by sting             #+#    #+#             */
-/*   Updated: 2024/01/05 12:01:41 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/08 10:12:47 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ int main(int argc, char **argv)
     stack_b = NULL;
 
     // check created stack
-    t_list *stack2_a = stack_a;
-    printf("\nStack Creation\n");
-    while (stack2_a != NULL)
-    {
-        printf("nbr_a = %d\n", stack2_a->nbr);
-        stack2_a = stack2_a->next;
-    }
-    printf("\n");
+    // t_list *stack2_a = stack_a;
+    // printf("\nStack Creation\n");
+    // while (stack2_a != NULL)
+    // {
+    //     printf("nbr_a = %d\n", stack2_a->nbr);
+    //     stack2_a = stack2_a->next;
+    // }
+    // printf("\n");
     // t_list *stack2_b = stack_b;
     // while (stack2_b != NULL)
     // {
@@ -57,8 +57,6 @@ int main(int argc, char **argv)
     //     stack2_b = stack2_b->next;
     // }
     // printf("\n");
-
-
 
     nbr_count = ft_lstsize(stack_a);
     if (nbr_count == 2)
@@ -72,6 +70,8 @@ int main(int argc, char **argv)
         sort4_or_5(&stack_a, &stack_b, nbr_count);
     else if (nbr_count > 5)
     {
+        assign_index(stack_a);
+        quick_sort3(&stack_a, &stack_b, TOP_A, nbr_count);
     }
 
     // CHECK: Assigned Index (working)
@@ -84,33 +84,31 @@ int main(int argc, char **argv)
     //     tmp = tmp->next;
     // }
 
-    assign_index(stack_a);
     // CHECK: Partition
-    partition(&stack_a, &stack_b, BOT_A, nbr_count);
 
 
     // check final stack
-    printf("\n------After sort------\n");
-    printf("-- Stack A --");
-    while (stack_a != NULL)
-    {
-        printf("\nnbr_a = %d", stack_a->nbr);
-        // if (stack_a->prev)
-        //     printf("    prev = %d", stack_a->prev->nbr);
-        // else
-        //     printf("    prev = NULL");
-        stack_a = stack_a->next;
-    }
-    printf("\n");
-    printf("\n--Stack B--\n");
-    while (stack_b != NULL)
-    {
-        printf("nbr_b = %d\n", stack_b->nbr);
-        // if (stack_b->prev)
-        //     printf("prev = %d\n", stack_b->prev->nbr);
-        // else
-        //     printf("prev = NULL\n");
-        stack_b = stack_b->next;
-    }
+    // printf("\n------After sort------\n");
+    // printf("-- Stack A --");
+    // while (stack_a != NULL)
+    // {
+    //     printf("\nnbr_a = %d", stack_a->nbr);
+    //     // if (stack_a->prev)
+    //     //     printf("    prev = %d", stack_a->prev->nbr);
+    //     // else
+    //     //     printf("    prev = NULL");
+    //     stack_a = stack_a->next;
+    // }
+    // printf("\n");
+    // printf("\n--Stack B--\n");
+    // while (stack_b != NULL)
+    // {
+    //     printf("nbr_b = %d\n", stack_b->nbr);
+    //     // if (stack_b->prev)
+    //     //     printf("prev = %d\n", stack_b->prev->nbr);
+    //     // else
+    //     //     printf("prev = NULL\n");
+    //     stack_b = stack_b->next;
+    // }
     delete_list(stack_a);
 }

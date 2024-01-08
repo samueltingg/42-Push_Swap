@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:08:25 by sting             #+#    #+#             */
-/*   Updated: 2024/01/05 12:37:15 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/08 10:12:11 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ t_split_dest *partition(t_list **stack_a, t_list **stack_b, enum e_loc cur_loc, 
 	// printf("min->loc: %i\n mid->loc: %i\n max->loc: %i\n", dest->min.loc, dest->mid.loc, dest->max.loc);
 	init_chunk_size(dest);
 
+	// printf("\n--PARTITION--\n");
     while (cur_chunk_size) // include node ??
 	{
 		// printf("check partition\n");
@@ -120,27 +121,27 @@ t_split_dest *partition(t_list **stack_a, t_list **stack_b, enum e_loc cur_loc, 
 
       	if (node->index > large_pivot) // MAX
 		{
-			printf("max_nb: %i\n", node->nbr);
+			// printf("max_nb: %i\n", node->nbr);
 			move_from_to(cur_loc, dest->max.loc, stack_a, stack_b);
 			dest->max.size++;
 		}
         else if (node->index > small_pivot && node->index <= large_pivot) // MID
 		{
-			printf("mid_nb: %i\n", node->nbr);
+			// printf("mid_nb: %i\n", node->nbr);
 			move_from_to(cur_loc, dest->mid.loc, stack_a, stack_b);
 			dest->mid.size++;
 		}
         else if (node->index <= small_pivot) // MIN
 		{
-			printf("min_nb: %i\n", node->nbr);
+			// printf("min_nb: %i\n", node->nbr);
 			move_from_to(cur_loc, dest->min.loc, stack_a, stack_b);
 			dest->min.size++;
 		}
 		cur_chunk_size--; // ?? risky if somehow didn't enter any if statement
     }
-	printf("\nmin->size: %i\nmid->size: %i\nmax->size: %i\n", dest->min.size, dest->mid.size, dest->max.size);
+	// printf("\nmin->size: %i\nmid->size: %i\nmax->size: %i\n", dest->min.size, dest->mid.size, dest->max.size);
 	// ^^ remove
-	free(dest);
+	// free(dest);
 	return(dest);
 }
 /*
@@ -167,25 +168,46 @@ t_split_dest *partition(t_list **stack_a, t_list **stack_b, enum e_loc cur_loc, 
 
 void quick_sort3(t_list **stack_a, t_list **stack_b, enum e_loc cur_loc, int cur_chunksize)
 {
-
+	t_split_dest	*dest;
+	
 	if (cur_chunksize == 1)
 		move_from_to(cur_loc, TOP_A, stack_a, stack_b);
 	else if (cur_chunksize == 2) // [] TO TEST
 	{
+		// printf("\n\n~~ chunksize = 2 ~~\n");
 		move_from_to(cur_loc, TOP_A, stack_a, stack_b);
 		move_from_to(cur_loc, TOP_A, stack_a, stack_b);
 		if ((*stack_a)->nbr > ((*stack_a)->next)->nbr)
-			swap(*stack_a);
+		{
+			sa(*stack_a);
+		}
 	}
 	else if (cur_chunksize > 2) // STOPPED HERE 5/1/24
 	{
-		partition(stack_a, stack_b, cur_loc, cur_chunksize); // max
-		quick_sort3(stack_a, stack_b, max->loc, max->size);
+		// printf("\n\n~~ chunksize > 2 ~~\n");
+		// dest = partition(stack_a, stack_b, cur_loc, cur_chunksize); // max
+		// printf("\nmax_size: %i\n", dest->max.size);
+		// printf("max_loc: %i\n", dest->max.loc);
+		// quick_sort3(stack_a, stack_b, dest->max.loc, dest->max.size);
+		// free(dest);
 
-		partition(stack_a, stack_b, cur_loc, cur_chunksize); // mid
-		quick_sort3(stack_a, stack_b, mid->loc, mid->size);
+		// dest = partition(stack_a, stack_b, cur_loc, cur_chunksize); // mid
+		// quick_sort3(stack_a, stack_b, dest->mid.loc, dest->mid.size);
+		// free(dest);
 
-		partition(stack_a, stack_b, cur_loc, cur_chunksize);// min
-		quick_sort3(stack_a, stack_b, min->loc, min->size);
+		// dest = partition(stack_a, stack_b, cur_loc, cur_chunksize);// min
+		// quick_sort3(stack_a, stack_b, dest->min.loc, dest->min.size);
+		// free(dest);
+
+		// printf("\n\n~~ chunksize > 2 ~~\n");
+		dest = partition(stack_a, stack_b, cur_loc, cur_chunksize); // max
+		// printf("\nmax_size: %i\n", dest->max.size);
+		// printf("max_loc: %i\n", dest->max.loc);
+		quick_sort3(stack_a, stack_b, dest->max.loc, dest->max.size);
+
+		quick_sort3(stack_a, stack_b, dest->mid.loc, dest->mid.size);
+
+		quick_sort3(stack_a, stack_b, dest->min.loc, dest->min.size);
+		free(dest);
 	}
 }

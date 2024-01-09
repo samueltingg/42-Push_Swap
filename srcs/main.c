@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:50 by sting             #+#    #+#             */
-/*   Updated: 2024/01/09 15:44:03 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/09 16:57:30 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,20 @@ int main(int argc, char **argv)
     t_list  *new;
     int nbr_count;
 
-    stack_a = NULL;
-    if (argc <= 2)
-        return (-1);
 
+    stack_a = NULL;
     // create stack
     i = 1;
     while (argv[i] != NULL)
     {
         // printf("argv[i]: %s\n", argv[i]);
-        check_nbr_valid(argv[i], stack_a); // ERROR CHECKING
+        check_valid_arg(argv[i], stack_a); // ERROR CHECKING
         new = ft_lstnew_d(ft_atoi(argv[i])); // malloc
         ft_lstadd_back_d(&stack_a, new);
         i++;
     }
+    if (argc <= 2)
+        return (-1);
     check_duplicates(stack_a); // ERROR CHECKING
     if (is_sorted(stack_a))
         exit (-1);

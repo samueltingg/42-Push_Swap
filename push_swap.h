@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 17:18:18 by sting             #+#    #+#             */
-/*   Updated: 2024/01/08 09:16:09 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/09 16:36:37 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ t_list			*ft_lstnew_d(int nbr);
 void			ft_lstadd_back_d(t_list **lst, t_list *new);
 
 // CHECKING
-void			check_nbr_valid(char *str, t_list *stack);
+void			check_valid_arg(char *str, t_list *stack);
 void			check_duplicates(t_list *head);
 int				is_sorted(t_list *stack);
 

@@ -1,6 +1,6 @@
 #include "../push_swap.h"
 
-void check_nbr_valid(char *str, t_list *stack)
+void check_valid_arg(char *str, t_list *stack)
 {
     long nbr;
 
@@ -10,7 +10,7 @@ void check_nbr_valid(char *str, t_list *stack)
             str++;
         if (!ft_isdigit(*str)) 
         {
-            ft_printf("%s\n", "Error");
+            ft_printf("Error\n");
             delete_list(stack);
             exit(-1);
         }   
@@ -19,7 +19,7 @@ void check_nbr_valid(char *str, t_list *stack)
     nbr = ft_atol(str);
     if (nbr > INT_MAX || nbr < INT_MIN)
     {
-        ft_printf("%s\n", "Error");
+        ft_printf("Error\n");
         delete_list(stack);
         exit(-1);
     }
@@ -35,7 +35,7 @@ void check_duplicates(t_list *head)
             if (head->nbr == runner->nbr)
             {
                 delete_list(head);
-                ft_printf("%s\n", "Error");
+                ft_printf("Error\n");
                 exit(-1);
             }
             runner = runner->next;

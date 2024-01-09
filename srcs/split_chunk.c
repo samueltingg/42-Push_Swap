@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:08:25 by sting             #+#    #+#             */
-/*   Updated: 2024/01/08 10:12:11 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/09 14:15:15 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,13 +102,17 @@ t_split_dest *partition(t_list **stack_a, t_list **stack_b, enum e_loc cur_loc, 
 	t_split_dest *dest; // create new set of split_dest for each partition
 	t_list *node;
 
-	dest = (t_split_dest *)malloc(sizeof(t_split_dest));
+	dest = (t_split_dest *)malloc(sizeof(t_split_dest)); // MALLOC !!!!
     max_index = find_max_index(*stack_a, *stack_b, cur_loc, cur_chunk_size);
 	// printf("max_index: %i\n", max_index);
     small_pivot = max_index - cur_chunk_size * (2.0 / 3);
     large_pivot = max_index - cur_chunk_size * (1.0 / 3);
 	// printf("small_pv: %i\n large_pv: %i\n", small_pivot, large_pivot);
 
+	if (cur_loc == BOT_A && ft_lstsize(*stack_a) == cur_chunk_size)
+		cur_loc = TOP_A; // Optimization "TO THE TOP"
+	if (cur_loc == BOT_B && ft_lstsize(*stack_b) == cur_chunk_size)
+		cur_loc = TOP_B; // Optimization "TO THE TOP"
 	set_split_loc(cur_loc, &(dest->min), &(dest->mid), &(dest->max));
 	// printf("min->loc: %i\n mid->loc: %i\n max->loc: %i\n", dest->min.loc, dest->mid.loc, dest->max.loc);
 	init_chunk_size(dest);
@@ -118,7 +122,6 @@ t_split_dest *partition(t_list **stack_a, t_list **stack_b, enum e_loc cur_loc, 
 	{
 		// printf("check partition\n");
 		node = starting_node(*stack_a, *stack_b, cur_loc);
-
       	if (node->index > large_pivot) // MAX
 		{
 			// printf("max_nb: %i\n", node->nbr);
@@ -141,29 +144,8 @@ t_split_dest *partition(t_list **stack_a, t_list **stack_b, enum e_loc cur_loc, 
     }
 	// printf("\nmin->size: %i\nmid->size: %i\nmax->size: %i\n", dest->min.size, dest->mid.size, dest->max.size);
 	// ^^ remove
-	// free(dest);
 	return(dest);
 }
-/*
-{
-		BASE CASE ->
-			if (chunk_size == 1)
-					push/rotate(depends on loc) to TOP_A
-			else if (chunk_size == 2)
-					push/rotate(depends on loc) to TOP_A
-					if not sorted (if nbr > nbr->next)
-						swap
-
-		else
-			partition(stack_a, stack_b, cur_loc, cur_chunksize) // max
-			qs(stack_a, stack_b, max->loc, max->size)
-
-			partition(stack_a, stack_b, cur_loc, cur_chunksize) // mid
-			qs(stack_a, stack_b, mid->loc, mid->size)
-
-			partition(stack_a, stack_b, cur_loc, cur_chunksize) // min
-			qs(stack_a, stack_b, min->loc, min->size)
-} */
 
 
 void quick_sort3(t_list **stack_a, t_list **stack_b, enum e_loc cur_loc, int cur_chunksize)
@@ -171,42 +153,26 @@ void quick_sort3(t_list **stack_a, t_list **stack_b, enum e_loc cur_loc, int cur
 	t_split_dest	*dest;
 	
 	if (cur_chunksize == 1)
+	{
+		// printf("\n\n~~ chunksize = 1 ~~\n");
 		move_from_to(cur_loc, TOP_A, stack_a, stack_b);
-	else if (cur_chunksize == 2) // [] TO TEST
+	}
+	else if (cur_chunksize == 2) 
 	{
 		// printf("\n\n~~ chunksize = 2 ~~\n");
 		move_from_to(cur_loc, TOP_A, stack_a, stack_b);
 		move_from_to(cur_loc, TOP_A, stack_a, stack_b);
 		if ((*stack_a)->nbr > ((*stack_a)->next)->nbr)
-		{
 			sa(*stack_a);
-		}
 	}
-	else if (cur_chunksize > 2) // STOPPED HERE 5/1/24
+	else if (cur_chunksize > 2) 
 	{
 		// printf("\n\n~~ chunksize > 2 ~~\n");
-		// dest = partition(stack_a, stack_b, cur_loc, cur_chunksize); // max
-		// printf("\nmax_size: %i\n", dest->max.size);
-		// printf("max_loc: %i\n", dest->max.loc);
-		// quick_sort3(stack_a, stack_b, dest->max.loc, dest->max.size);
-		// free(dest);
-
-		// dest = partition(stack_a, stack_b, cur_loc, cur_chunksize); // mid
-		// quick_sort3(stack_a, stack_b, dest->mid.loc, dest->mid.size);
-		// free(dest);
-
-		// dest = partition(stack_a, stack_b, cur_loc, cur_chunksize);// min
-		// quick_sort3(stack_a, stack_b, dest->min.loc, dest->min.size);
-		// free(dest);
-
-		// printf("\n\n~~ chunksize > 2 ~~\n");
-		dest = partition(stack_a, stack_b, cur_loc, cur_chunksize); // max
+		dest = partition(stack_a, stack_b, cur_loc, cur_chunksize);
 		// printf("\nmax_size: %i\n", dest->max.size);
 		// printf("max_loc: %i\n", dest->max.loc);
 		quick_sort3(stack_a, stack_b, dest->max.loc, dest->max.size);
-
 		quick_sort3(stack_a, stack_b, dest->mid.loc, dest->mid.size);
-
 		quick_sort3(stack_a, stack_b, dest->min.loc, dest->min.size);
 		free(dest);
 	}

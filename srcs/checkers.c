@@ -54,6 +54,6 @@ int is_sorted(t_list *stack)
         if (next && stack->nbr > next->nbr)
             return (0);
         stack = next;
-    }
+   }
     return (1);
 }

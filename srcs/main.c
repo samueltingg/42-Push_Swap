@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:50 by sting             #+#    #+#             */
-/*   Updated: 2024/01/09 13:33:03 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/09 15:44:03 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int main(int argc, char **argv)
     i = 1;
     while (argv[i] != NULL)
     {
+        // printf("argv[i]: %s\n", argv[i]);
         check_nbr_valid(argv[i], stack_a); // ERROR CHECKING
         new = ft_lstnew_d(ft_atoi(argv[i])); // malloc
         ft_lstadd_back_d(&stack_a, new);

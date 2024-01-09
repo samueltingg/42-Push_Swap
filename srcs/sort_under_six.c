@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:37:48 by sting             #+#    #+#             */
-/*   Updated: 2024/01/03 10:05:13 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/09 15:08:52 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,29 +68,6 @@ static int	if_smallest_in_bottom_half(t_list *stack, int smallest)
 	return (0);
 }
 // line 59: smallest nb in middle is not counted
-
-void	insertion_sort(t_list **stack_a, t_list **stack_b)
-{
-	int	smallest;
-
-	while (*stack_a)
-	{
-		smallest = find_smallest_nbr(*stack_a);
-		if (if_smallest_in_bottom_half(*stack_a, smallest))
-		{
-			while ((*stack_a)->nbr != smallest)
-				rra(stack_a);
-		}
-		else
-		{
-			while ((*stack_a)->nbr != smallest)
-				ra(stack_a);
-		}
-		pb(stack_a, stack_b);
-	}
-	while (*stack_b)
-		pa(stack_b, stack_a);
-}
 
 void	sort4_or_5(t_list **stack_a, t_list **stack_b, int nbr_count)
 {

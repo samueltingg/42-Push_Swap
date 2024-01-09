@@ -4,3 +4,10 @@
 .vscode/
 push_swap
 output.txt
+gemartin_push_swap_tester/
+0
+checker_linux
+checker_Mac
+pro_checker
+push_swap_test.sh
+traces.txt

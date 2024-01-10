@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 10:49:43 by sting             #+#    #+#             */
-/*   Updated: 2024/01/05 10:56:28 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/10 16:20:50 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	rotate(t_list **stack)
 	first_node = *stack;
 	last_node = ft_lstlast(*stack);
 	*stack = first_node->next;
-	(*stack)->prev = NULL; // ISSUE !!!
+	(*stack)->prev = NULL;
 	last_node->next = first_node;
 	first_node->prev = last_node;
 	first_node->next = NULL;
@@ -33,7 +33,7 @@ void	rotate(t_list **stack)
 void	ra(t_list **stack_a)
 {
 	if ((*stack_a)->next == NULL)
-		return;
+		return ;
 	rotate(stack_a);
 	ft_printf("ra\n");
 }
@@ -41,7 +41,7 @@ void	ra(t_list **stack_a)
 void	rb(t_list **stack_b)
 {
 	if ((*stack_b)->next == NULL)
-		return;
+		return ;
 	rotate(stack_b);
 	ft_printf("rb\n");
 }
@@ -49,10 +49,10 @@ void	rb(t_list **stack_b)
 void	rr(t_list **stack_a, t_list **stack_b)
 {
 	if ((*stack_a)->next == NULL)
-		return;
+		return ;
 	if ((*stack_b)->next == NULL)
-		return;
-    rotate(stack_a);
+		return ;
+	rotate(stack_a);
 	rotate(stack_b);
 	ft_printf("rr\n");
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_funcs.c                                       :+:      :+:    :+:   */
+/*   list_functions.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:58 by sting             #+#    #+#             */
-/*   Updated: 2024/01/02 17:45:16 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/10 16:23:57 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	delete_list(t_list *list)
 	while (list)
 	{
 		next_node = list->next;
-		free (list);
+		free(list);
 		list = next_node;
 	}
 }
@@ -34,7 +34,7 @@ t_list	*ft_lstnew_d(int nbr)
 		ft_printf("Error\n");
 		return (NULL);
 	}
-	new_node->prev = NULL; // changes
+	new_node->prev = NULL;
 	new_node->nbr = nbr;
 	new_node->next = NULL;
 	return (new_node);
@@ -49,6 +49,6 @@ void	ft_lstadd_back_d(t_list **lst, t_list *new)
 		*lst = new;
 		return ;
 	}
-	new->prev = ft_lstlast(*lst); // changes
+	new->prev = ft_lstlast(*lst);
 	(ft_lstlast(*lst))->next = new;
 }

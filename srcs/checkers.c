@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checkers.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/10 16:22:04 by sting             #+#    #+#             */
+/*   Updated: 2024/01/10 16:23:08 by sting            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 void	free_n_exit(t_list *ptr)
@@ -15,10 +27,10 @@ void	check_valid_arg(char *str, t_list *stack)
 	i = 0;
 	if (str[i] == '\0')
 		free_n_exit(stack);
+	if (str[i] == '-')
+		i++;
 	while (str[i])
 	{
-		if (str[i] == '-')
-			i++;
 		if (!ft_isdigit(str[i]))
 			free_n_exit(stack);
 		i++;
@@ -27,6 +39,7 @@ void	check_valid_arg(char *str, t_list *stack)
 	if (nbr > INT_MAX || nbr < INT_MIN)
 		free_n_exit(stack);
 }
+
 void	check_duplicates(t_list *head)
 {
 	t_list	*runner;
@@ -46,7 +59,7 @@ void	check_duplicates(t_list *head)
 
 int	is_sorted(t_list *stack)
 {
-	t_list *next;
+	t_list	*next;
 
 	while (stack)
 	{

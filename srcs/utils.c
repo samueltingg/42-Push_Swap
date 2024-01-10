@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:58 by sting             #+#    #+#             */
-/*   Updated: 2024/01/10 14:25:36 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/10 16:41:49 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 long	ft_atol(const char *str)
 {
-	int i;
-	long sign;
-	long result;
+	int		i;
+	long	sign;
+	long	result;
 
 	i = 0;
 	sign = 1;

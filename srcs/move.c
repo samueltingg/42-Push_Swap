@@ -6,13 +6,14 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:08:25 by sting             #+#    #+#             */
-/*   Updated: 2024/01/04 14:34:20 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/10 16:24:25 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	move_from_to(enum e_loc from, enum e_loc to, t_list **stack_a, t_list **stack_b)
+int	move_from_to(enum e_loc from, enum e_loc to, t_list **stack_a,
+		t_list **stack_b)
 {
 	if (from == TOP_A)
 		move_from_top_a(stack_a, stack_b, to);
@@ -25,11 +26,11 @@ int	move_from_to(enum e_loc from, enum e_loc to, t_list **stack_a, t_list **stac
 	return (1);
 }
 
-void move_from_top_a(t_list **stack_a, t_list **stack_b, enum e_loc to)
+void	move_from_top_a(t_list **stack_a, t_list **stack_b, enum e_loc to)
 {
 	if (to == BOT_A)
 		ra(stack_a);
-	else if (to == TOP_B) 
+	else if (to == TOP_B)
 		pb(stack_a, stack_b);
 	else if (to == BOT_B)
 	{
@@ -38,7 +39,7 @@ void move_from_top_a(t_list **stack_a, t_list **stack_b, enum e_loc to)
 	}
 }
 
-void move_from_top_b(t_list **stack_a, t_list **stack_b, enum e_loc to)
+void	move_from_top_b(t_list **stack_a, t_list **stack_b, enum e_loc to)
 {
 	if (to == TOP_A)
 		pa(stack_b, stack_a);
@@ -48,10 +49,10 @@ void move_from_top_b(t_list **stack_a, t_list **stack_b, enum e_loc to)
 	{
 		pa(stack_b, stack_a);
 		ra(stack_a);
-	}	
+	}
 }
 
-void move_from_bottom_a(t_list **stack_a, t_list **stack_b, enum e_loc to)
+void	move_from_bottom_a(t_list **stack_a, t_list **stack_b, enum e_loc to)
 {
 	if (to == TOP_A)
 		rra(stack_a);
@@ -68,7 +69,7 @@ void move_from_bottom_a(t_list **stack_a, t_list **stack_b, enum e_loc to)
 	}
 }
 
-void move_from_bottom_b(t_list **stack_a, t_list **stack_b, enum e_loc to)
+void	move_from_bottom_b(t_list **stack_a, t_list **stack_b, enum e_loc to)
 {
 	if (to == TOP_B)
 		rrb(stack_b);

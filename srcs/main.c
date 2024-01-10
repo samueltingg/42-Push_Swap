@@ -6,11 +6,15 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:50 by sting             #+#    #+#             */
-/*   Updated: 2024/01/09 16:57:30 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/10 09:26:32 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+/*
+if p
+
+*/
 
 int main(int argc, char **argv)
 {
@@ -32,7 +36,10 @@ int main(int argc, char **argv)
         i++;
     }
     if (argc <= 2)
+    {
+        free(stack_a);
         return (-1);
+    }
     check_duplicates(stack_a); // ERROR CHECKING
     if (is_sorted(stack_a))
         exit (-1);

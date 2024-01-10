@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:08:25 by sting             #+#    #+#             */
-/*   Updated: 2024/01/10 16:40:42 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/10 17:18:10 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,19 +93,40 @@ void	init_chunk_size(t_split_dest *dest)
 	dest->max.size = 0;
 }
 
+// void	move_nbr_based_on_index(t_pv pivot, enum e_loc cur_loc, t_split_dest *dest,
+// 		t_list **stack_a, t_list **stack_b)
+// {
+// 	t_list	*node;
+
+// 	node = starting_node(*stack_a, *stack_b, cur_loc);
+// 	if (node->index > pivot.large)
+// 	{
+// 		move_from_to(cur_loc, dest->max.loc, stack_a, stack_b);
+// 		dest->max.size++;
+// 	}
+// 	else if (node->index > pivot.small && node->index <= pivot.large)
+// 	{
+// 		move_from_to(cur_loc, dest->mid.loc, stack_a, stack_b);
+// 		dest->mid.size++;
+// 	}
+// 	else if (node->index <= pivot.small)
+// 	{
+// 		move_from_to(cur_loc, dest->min.loc, stack_a, stack_b);
+// 		dest->min.size++;
+// 	}
+// }
+
 t_split_dest	*partition(t_list **stack_a, t_list **stack_b,
 		enum e_loc cur_loc, int cur_chunk_size)
 {
-	int				small_pivot;
-	int				large_pivot;
 	int				max_index;
+	t_pv			pivot;
 	t_split_dest	*dest;
-	t_list			*node;
 
 	dest = (t_split_dest *)malloc(sizeof(t_split_dest));
 	max_index = find_max_index(*stack_a, *stack_b, cur_loc, cur_chunk_size);
-	small_pivot = max_index - cur_chunk_size * (2.0 / 3);
-	large_pivot = max_index - cur_chunk_size * (1.0 / 3);
+	pivot.small = max_index - cur_chunk_size * (2.0 / 3);
+	pivot.large = max_index - cur_chunk_size * (1.0 / 3);
 	if (cur_loc == BOT_A && ft_lstsize(*stack_a) == cur_chunk_size)
 		cur_loc = TOP_A;
 	if (cur_loc == BOT_B && ft_lstsize(*stack_b) == cur_chunk_size)
@@ -114,22 +135,23 @@ t_split_dest	*partition(t_list **stack_a, t_list **stack_b,
 	init_chunk_size(dest);
 	while (cur_chunk_size)
 	{
-		node = starting_node(*stack_a, *stack_b, cur_loc);
-		if (node->index > large_pivot)
-		{
-			move_from_to(cur_loc, dest->max.loc, stack_a, stack_b);
-			dest->max.size++;
-		}
-		else if (node->index > small_pivot && node->index <= large_pivot)
-		{
-			move_from_to(cur_loc, dest->mid.loc, stack_a, stack_b);
-			dest->mid.size++;
-		}
-		else if (node->index <= small_pivot)
-		{
-			move_from_to(cur_loc, dest->min.loc, stack_a, stack_b);
-			dest->min.size++;
-		}
+		// t_list			*node;
+		// node = starting_node(*stack_a, *stack_b, cur_loc);
+		// if (node->index > pivot.large)
+		// {
+		// 	move_from_to(cur_loc, dest->max.loc, stack_a, stack_b);
+		// 	dest->max.size++;
+		// }
+		// else if (node->index > pivot.small && node->index <= pivot.large)
+		// {
+		// 	move_from_to(cur_loc, dest->mid.loc, stack_a, stack_b);
+		// 	dest->mid.size++;
+		// }
+		// else if (node->index <= pivot.small)
+		// {
+		// 	move_from_to(cur_loc, dest->min.loc, stack_a, stack_b);
+		// 	dest->min.size++;
+		// }
 		cur_chunk_size--;
 	}
 	return (dest);

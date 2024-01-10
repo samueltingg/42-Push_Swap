@@ -52,7 +52,11 @@ void			ft_lstadd_back_d(t_list **lst, t_list *new);
  * @brief when encounter invalid input, prints "Error\n" & exit program.
  */
 void			check_valid_arg(char *str, t_list *stack);
-int				count_words(char const *str, char c);
+/**
+ * @brief counts number of words separated by space(s).
+*/
+int				count_words(char const *str);
+void    free_n_exit(t_list *ptr);
 
 /**
  * @brief when encounter duplicates, prints "Error\n" & exit program.

@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:58 by sting             #+#    #+#             */
-/*   Updated: 2024/01/10 12:51:01 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/10 14:25:36 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ long	ft_atol(const char *str)
 	return (result * sign);
 }
 
-int	count_words(char const *str, char c)
+int	count_words(char const *str)
 {
 	int	count;
 	int	flag;
@@ -46,15 +46,13 @@ int	count_words(char const *str, char c)
 	flag = 1;
 	while (*str)
 	{
-		if (*str != c && flag == 1)
+		if (*str != ' ' && flag == 1)
 		{
 			count++;
 			flag = 0;
 		}
-		if (*str == c)
-		{
+		if (*str == ' ')
 			flag = 1;
-		}
 		str++;
 	}
 	return (count);

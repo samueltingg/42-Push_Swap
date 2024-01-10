@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:50 by sting             #+#    #+#             */
-/*   Updated: 2024/01/10 13:44:45 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/10 15:28:20 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,49 +15,46 @@
 int main(int argc, char **argv)
 {
     int i;
+    int j;
     t_list  *stack_a;
-    // t_list  *new;
     int nbr_count;
     char **str_array;
 
     stack_a = NULL;
     // create stack
-
+    
     if (argc <= 1)
         return(-1);
-    else if (argc == 2)
-    {
-        if (count_words(argv[1], ' ') > 1) // just sp? how about \n,\t
-        {
-            str_array = ft_split(argv[1], ' ');
-            i = 0;
-            while (str_array[i])
+    if (argc >= 2)
+    {   
+        i = 1;
+	    while (argv[i])
+	    {
+            if (count_words(argv[i]) > 1)
             {
-                check_valid_arg(str_array[i], stack_a);
-                ft_lstadd_back_d(&stack_a, ft_lstnew_d(ft_atoi(str_array[i])));
-                free(str_array[i]);
-                i++;
+                str_array = ft_split(argv[i], ' ');
+                j = 0;
+                while (str_array[j])
+                {
+                    check_valid_arg(str_array[j], stack_a);
+                    ft_lstadd_back_d(&stack_a, ft_lstnew_d(ft_atoi(str_array[j])));
+                    free(str_array[j]);
+                    j++;
+                }
+                free(str_array[j]);
             }
-            free(str_array);
-        }
-        else
-            check_valid_arg(argv[1], stack_a);
+            else if (count_words(argv[i]) == 1)
+            {
+                check_valid_arg(argv[i], stack_a);
+                if (argc >= 3)
+                    ft_lstadd_back_d(&stack_a, ft_lstnew_d(ft_atoi(argv[i])));
+            }
+            else if (count_words(argv[i]) == 0)
+                free_n_exit(stack_a);
+            i++;
+	    }
     }
-    
-    // i = 1;
-    // while (argv[i] != NULL)
-    // {
-    //     // printf("argv[i]: %s\n", argv[i]);
-    //     check_valid_arg(argv[i], stack_a); // ERROR CHECKING
-    //     // new = ft_lstnew_d(ft_atoi(argv[i])); // malloc
-    //     ft_lstadd_back_d(&stack_a, ft_lstnew_d(ft_atoi(argv[i])));
-    //     i++;
-    // }
-    // if (argc <= 2)
-    // {
-    //     free(stack_a);
-    //     return (-1);
-    // }
+
     // ---------------------------------------------
     check_duplicates(stack_a); // ERROR CHECKING
     if (is_sorted(stack_a))
@@ -99,19 +96,6 @@ int main(int argc, char **argv)
         assign_index(stack_a);
         quick_sort3(&stack_a, &stack_b, TOP_A, nbr_count);
     }
-
-    // CHECK: Assigned Index (working)
-    // assign_index(stack_a);
-    // t_list *tmp = stack_a;
-    // while (tmp)
-    // {
-    //     printf("%i ->", tmp->nbr);
-    //     printf("index: %i\n", tmp->index);
-    //     tmp = tmp->next;
-    // }
-
-    // CHECK: Partition
-
 
     // check final stack
     // printf("\n------After sort------\n");

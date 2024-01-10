@@ -1,28 +1,29 @@
 #include "../push_swap.h"
 
+void    free_n_exit(t_list *ptr) // use later
+{            
+    ft_printf("Error\n");
+    delete_list(ptr);
+    exit(-1);
+}
+
 void check_valid_arg(char *str, t_list *stack)
 {
     long nbr;
+    if (*str == '\0')
+        free_n_exit(stack);
 
     while (*str)
     {
         if (*str == '-')
             str++;
         if (!ft_isdigit(*str)) 
-        {
-            ft_printf("Error\n");
-            delete_list(stack);
-            exit(-1);
-        }   
+            free_n_exit(stack);   
         str++;
     }
     nbr = ft_atol(str);
     if (nbr > INT_MAX || nbr < INT_MIN)
-    {
-        ft_printf("Error\n");
-        delete_list(stack);
-        exit(-1);
-    }
+        free_n_exit(stack);
 }
 void check_duplicates(t_list *head)
 {
@@ -33,11 +34,7 @@ void check_duplicates(t_list *head)
         while (runner)
         {
             if (head->nbr == runner->nbr)
-            {
-                delete_list(head);
-                ft_printf("Error\n");
-                exit(-1);
-            }
+                free_n_exit(head);
             runner = runner->next;
         }
         head = head->next;

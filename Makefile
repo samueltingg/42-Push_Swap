@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -std=c99 
-
+# -fsanitize=address -g
 SRCDIR = srcs/
 SRCS_FIL = \
 			main.c \

@@ -6,44 +6,62 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:50 by sting             #+#    #+#             */
-/*   Updated: 2024/01/10 09:26:32 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/10 13:44:45 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
-/*
-if p
-
-*/
 
 int main(int argc, char **argv)
 {
     int i;
     t_list  *stack_a;
-    t_list  *new;
+    // t_list  *new;
     int nbr_count;
-
+    char **str_array;
 
     stack_a = NULL;
     // create stack
-    i = 1;
-    while (argv[i] != NULL)
+
+    if (argc <= 1)
+        return(-1);
+    else if (argc == 2)
     {
-        // printf("argv[i]: %s\n", argv[i]);
-        check_valid_arg(argv[i], stack_a); // ERROR CHECKING
-        new = ft_lstnew_d(ft_atoi(argv[i])); // malloc
-        ft_lstadd_back_d(&stack_a, new);
-        i++;
+        if (count_words(argv[1], ' ') > 1) // just sp? how about \n,\t
+        {
+            str_array = ft_split(argv[1], ' ');
+            i = 0;
+            while (str_array[i])
+            {
+                check_valid_arg(str_array[i], stack_a);
+                ft_lstadd_back_d(&stack_a, ft_lstnew_d(ft_atoi(str_array[i])));
+                free(str_array[i]);
+                i++;
+            }
+            free(str_array);
+        }
+        else
+            check_valid_arg(argv[1], stack_a);
     }
-    if (argc <= 2)
-    {
-        free(stack_a);
-        return (-1);
-    }
+    
+    // i = 1;
+    // while (argv[i] != NULL)
+    // {
+    //     // printf("argv[i]: %s\n", argv[i]);
+    //     check_valid_arg(argv[i], stack_a); // ERROR CHECKING
+    //     // new = ft_lstnew_d(ft_atoi(argv[i])); // malloc
+    //     ft_lstadd_back_d(&stack_a, ft_lstnew_d(ft_atoi(argv[i])));
+    //     i++;
+    // }
+    // if (argc <= 2)
+    // {
+    //     free(stack_a);
+    //     return (-1);
+    // }
+    // ---------------------------------------------
     check_duplicates(stack_a); // ERROR CHECKING
     if (is_sorted(stack_a))
         exit (-1);
-    // ---------------------------------------------
 
     // stack b
     t_list  *stack_b;

@@ -50,15 +50,20 @@ void			ft_lstadd_back_d(t_list **lst, t_list *new);
 // CHECKING
 /**
  * @brief when encounter invalid input, prints "Error\n" & exit program.
-*/
+ */
 void			check_valid_arg(char *str, t_list *stack);
+int				count_words(char const *str, char c);
+
+/**
+ * @brief when encounter duplicates, prints "Error\n" & exit program.
+ */
 void			check_duplicates(t_list *head);
 int				is_sorted(t_list *stack);
 
 // INSTRUCTIONS
 /**
  * @brief swaps 2 int values without moving nodes
-*/
+ */
 int				swap(t_list *stack);
 void			sa(t_list *stack_a);
 void			sb(t_list *stack_b);
@@ -112,14 +117,22 @@ void			sort4_or_5(t_list **stack_a, t_list **stack_b, int nbr_count);
 void			assign_index(t_list *stack);
 
 // 3-way Quick Sort
-void quick_sort3(t_list **stack_a, t_list **stack_b, enum e_loc cur_loc, int cur_chunksize);
-t_split_dest *partition(t_list **stack_a, t_list **stack_b, enum e_loc cur_loc, int cur_chunk_size);
-int	move_from_to(enum e_loc from, enum e_loc to, t_list **stack_a, t_list **stack_b);
-void move_from_top_a(t_list **stack_a, t_list **stack_b, enum e_loc to);
-void move_from_top_b(t_list **stack_a, t_list **stack_b, enum e_loc to);
-void move_from_bottom_a(t_list **stack_a, t_list **stack_b, enum e_loc to);
-void move_from_bottom_b(t_list **stack_a, t_list **stack_b, enum e_loc to);
+void			quick_sort3(t_list **stack_a, t_list **stack_b,
+					enum e_loc cur_loc, int cur_chunksize);
+t_split_dest	*partition(t_list **stack_a, t_list **stack_b,
+					enum e_loc cur_loc, int cur_chunk_size);
+int				move_from_to(enum e_loc from, enum e_loc to, t_list **stack_a,
+					t_list **stack_b);
+void			move_from_top_a(t_list **stack_a, t_list **stack_b,
+					enum e_loc to);
+void			move_from_top_b(t_list **stack_a, t_list **stack_b,
+					enum e_loc to);
+void			move_from_bottom_a(t_list **stack_a, t_list **stack_b,
+					enum e_loc to);
+void			move_from_bottom_b(t_list **stack_a, t_list **stack_b,
+					enum e_loc to);
 
-t_list	*starting_node(t_list *stack_a, t_list *stack_b, enum e_loc cur_loc); // tmp
+t_list	*starting_node(t_list *stack_a, t_list *stack_b, enum e_loc cur_loc);
+		// tmp
 
 #endif

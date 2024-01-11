@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:22:04 by sting             #+#    #+#             */
-/*   Updated: 2024/01/11 09:02:46 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/11 10:08:59 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	check_valid_arg(char *str, t_list *stack)
 	i = 0;
 	if (str[i] == '\0')
 		free_n_exit(stack);
-	if (str[i] == '-')
+	if (str[i] == '-' && str[i + 1] != '\0')
 		i++;
 	while (str[i])
 	{

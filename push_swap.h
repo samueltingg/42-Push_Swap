@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/06 17:18:18 by sting             #+#    #+#             */
-/*   Updated: 2024/01/10 09:43:01y sting            ###   ########.fr       */
+/*   Created: 2024/01/10 16:07:01 by sting             #+#    #+#             */
+/*   Updated: 2024/01/11 09:42:05 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+typedef struct s_pv
+{
+	int			small;
+	int			large;
+}				t_pv;
 
 enum			e_loc
 {
@@ -38,6 +44,7 @@ typedef struct s_split_destt
 	t_chunk		min;
 	t_chunk		mid;
 	t_chunk		max;
+	enum e_loc	cur_loc;
 }				t_split_dest;
 
 // UTILS
@@ -54,9 +61,9 @@ void			ft_lstadd_back_d(t_list **lst, t_list *new);
 void			check_valid_arg(char *str, t_list *stack);
 /**
  * @brief counts number of words separated by space(s).
-*/
+ */
 int				count_words(char const *str);
-void    free_n_exit(t_list *ptr);
+void			free_n_exit(t_list *ptr);
 
 /**
  * @brief when encounter duplicates, prints "Error\n" & exit program.
@@ -120,11 +127,15 @@ void			sort4_or_5(t_list **stack_a, t_list **stack_b, int nbr_count);
 // Assigning index
 void			assign_index(t_list *stack);
 
-// 3-way Quick Sort
-void			quick_sort3(t_list **stack_a, t_list **stack_b,
-					enum e_loc cur_loc, int cur_chunksize);
-t_split_dest	*partition(t_list **stack_a, t_list **stack_b,
+t_list			*starting_node(t_list *stack_a, t_list *stack_b,
+					enum e_loc cur_loc);
+int				find_max_index(t_list *stack_a, t_list *stack_b,
 					enum e_loc cur_loc, int cur_chunk_size);
+void			set_split_loc(enum e_loc loc, t_chunk *min, t_chunk *mid,
+					t_chunk *max);
+void			init_chunk_size(t_split_dest *dest);
+
+// MOVE
 int				move_from_to(enum e_loc from, enum e_loc to, t_list **stack_a,
 					t_list **stack_b);
 void			move_from_top_a(t_list **stack_a, t_list **stack_b,
@@ -136,7 +147,10 @@ void			move_from_bottom_a(t_list **stack_a, t_list **stack_b,
 void			move_from_bottom_b(t_list **stack_a, t_list **stack_b,
 					enum e_loc to);
 
-t_list	*starting_node(t_list *stack_a, t_list *stack_b, enum e_loc cur_loc);
-		// tmp
+// 3-way Quick Sort
+void			quick_sort_3way(t_list **stack_a, t_list **stack_b,
+					enum e_loc cur_loc, int cur_chunksize);
+t_split_dest	*partition(t_list **stack_a, t_list **stack_b,
+					enum e_loc cur_loc, int cur_chunk_size);
 
 #endif

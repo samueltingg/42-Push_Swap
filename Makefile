@@ -1,10 +1,9 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -std=c99 
+CFLAGS = -Wall -Wextra -Werror -std=c99  
 # -fsanitize=address -g
 SRCDIR = srcs/
 SRCS_FIL = \
 			main.c \
-			utils.c \
 			checkers.c \
 			i_swap.c \
 			i_push.c \
@@ -13,7 +12,8 @@ SRCS_FIL = \
 			sort_under_six.c \
 			assign_index.c \
 			list_functions.c \
-			split_chunk.c \
+			three_way_quick_sort.c \
+			partition_utils.c \
 			move.c \
 
 SRCS = $(addprefix $(SRCDIR), $(SRCS_FIL))

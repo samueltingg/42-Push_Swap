@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:08:25 by sting             #+#    #+#             */
-/*   Updated: 2024/01/11 09:00:27 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/11 10:55:08 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	move_nbr_based_on_index(t_pv pivot, t_split_dest *dest,
 	}
 }
 
-t_split_dest	*partition(t_list **stack_a, t_list **stack_b,
+t_split_dest	*split_to_3_chunks(t_list **stack_a, t_list **stack_b,
 		enum e_loc cur_loc, int cur_chunk_size)
 {
 	int				max_index;
@@ -93,7 +93,7 @@ void	quick_sort_3way(t_list **stack_a, t_list **stack_b, enum e_loc cur_loc,
 	}
 	else if (cur_chunksize > 2)
 	{
-		dest = partition(stack_a, stack_b, cur_loc, cur_chunksize);
+		dest = split_to_3_chunks(stack_a, stack_b, cur_loc, cur_chunksize);
 		quick_sort_3way(stack_a, stack_b, dest->max.loc, dest->max.size);
 		quick_sort_3way(stack_a, stack_b, dest->mid.loc, dest->mid.size);
 		quick_sort_3way(stack_a, stack_b, dest->min.loc, dest->min.size);

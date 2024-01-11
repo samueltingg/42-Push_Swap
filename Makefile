@@ -13,7 +13,7 @@ SRCS_FIL = \
 			assign_index.c \
 			list_functions.c \
 			three_way_quick_sort.c \
-			partition_utils.c \
+			split_chunk_utils.c \
 			move.c \
 
 SRCS = $(addprefix $(SRCDIR), $(SRCS_FIL))

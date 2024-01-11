@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:07:01 by sting             #+#    #+#             */
-/*   Updated: 2024/01/11 09:42:05 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/11 10:55:08 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,7 +150,7 @@ void			move_from_bottom_b(t_list **stack_a, t_list **stack_b,
 // 3-way Quick Sort
 void			quick_sort_3way(t_list **stack_a, t_list **stack_b,
 					enum e_loc cur_loc, int cur_chunksize);
-t_split_dest	*partition(t_list **stack_a, t_list **stack_b,
+t_split_dest	*split_to_3_chunks(t_list **stack_a, t_list **stack_b,
 					enum e_loc cur_loc, int cur_chunk_size);
 
 #endif

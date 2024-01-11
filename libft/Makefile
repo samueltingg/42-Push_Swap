@@ -35,6 +35,7 @@ PSRCS_FIL = \
 			print_hex.c \
 			
 POBJS = $(PSRCS:.c=.o)
+# CFLAGS += -Ift_printf/
 
 all: $(NAME)
 
@@ -44,7 +45,7 @@ $(NAME): $(OBJS) $(POBJS)
 bonus: $(OBJS) $(BOBJS) $(POBJS)
 		ar -rc $(NAME) $(OBJS) $(BOBJS) $(POBJS)
 
-%.o:%.cd
+%.o:%.c
 	cc $(CFLAGS) -c $< -o $@
 
 RM = rm -f

@@ -1,10 +1,11 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -std=c99  
 # -fsanitize=address -g
+
 SRCDIR = srcs/
 SRCS_FIL = \
 			main.c \
-			checkers.c \
+			check_input_error.c \
 			i_swap.c \
 			i_push.c \
 			i_rotate.c \
@@ -26,16 +27,18 @@ LIBFTDIR = libft/
 LIBFT.A = $(LIBFTDIR)libft.a
 
 
-NAME = push_swap
+NAME = $(PUSH_SWAP) $(CHECKER)
+PUSH_SWAP = push_swap
+CHECKER = checker
 
-all:  $(OBJDIR) $(NAME)
+all:  $(OBJDIR) $(PUSH_SWAP)
 
 $(OBJDIR):
 		mkdir -p $(OBJDIR)
 
-$(NAME): $(OBJS)
+$(PUSH_SWAP): $(OBJS)
 		make bonus -C $(LIBFTDIR)
-		$(CC) $(CFLAGS) $(OBJS) -o $(NAME) -L$(LIBFTDIR) -lft
+		$(CC) $(CFLAGS) $(OBJS) -o $(PUSH_SWAP) -L$(LIBFTDIR) -lft
 
 $(OBJDIR)%.o: $(SRCDIR)%.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -48,7 +51,7 @@ clean:
 		make clean -C ${LIBFTDIR}
 
 fclean: clean
-		$(RM) $(NAME)
+		$(RM) $(PUSH_SWAP)
 		make fclean -C $(LIBFTDIR)
 
 re: fclean all

@@ -6,17 +6,18 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:50 by sting             #+#    #+#             */
-/*   Updated: 2024/01/15 16:17:41 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/15 16:59:27 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../checker_bonus.h"
 
 int main(int argc, char **argv)
 {
     int		i;
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	char *input;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -33,7 +34,14 @@ int main(int argc, char **argv)
 	}
 	check_duplicates(stack_a);
 
-	// ...
+	while (1)
+	{
+		input = get_next_line(0);
+		if (input == NULL)
+			break;
+		do_instruction_based_on_input(input, stack_a, stack_b)
+		
+	}
 	
 	delete_list(stack_a);
 }

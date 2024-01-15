@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:50 by sting             #+#    #+#             */
-/*   Updated: 2024/01/15 16:24:52 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/15 16:33:28 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ int	count_words(char const *str)
 	return (count);
 }
 
-void	check_n_add_arg_to_stack(int argc, char **argv, int i, t_stack **stack_a)
+void	check_n_add_arg_to_stack(int argc, char **argv, int i,
+		t_stack **stack_a)
 {
 	char	**str_array;
 	int		j;

@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:08:25 by sting             #+#    #+#             */
-/*   Updated: 2024/01/15 16:28:53 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/15 16:35:10 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ t_split_dest	*split_to_3_chunks(t_stack **stack_a, t_stack **stack_b,
 	return (dest);
 }
 
-void	quick_sort_3way(t_stack **stack_a, t_stack **stack_b, enum e_loc cur_loc,
-		int cur_chunksize)
+void	quick_sort_3way(t_stack **stack_a, t_stack **stack_b,
+		enum e_loc cur_loc, int cur_chunksize)
 {
 	t_split_dest	*dest;
 

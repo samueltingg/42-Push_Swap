@@ -6,15 +6,15 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 13:34:40 by sting             #+#    #+#             */
-/*   Updated: 2024/01/10 16:20:02 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/15 16:17:41 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	push(t_list **stack_y, t_list **stack_x)
+void	push(t_stack **stack_y, t_stack **stack_x)
 {
-	t_list	*first_node_y;
+	t_stack	*first_node_y;
 
 	if (!stack_y && !(*stack_y))
 		return ;
@@ -27,13 +27,13 @@ void	push(t_list **stack_y, t_list **stack_x)
 		(*stack_x)->next->prev = *stack_x;
 }
 
-void	pa(t_list **stack_b, t_list **stack_a)
+void	pa(t_stack **stack_b, t_stack **stack_a)
 {
 	push(stack_b, stack_a);
 	ft_printf("pa\n");
 }
 
-void	pb(t_list **stack_a, t_list **stack_b)
+void	pb(t_stack **stack_a, t_stack **stack_b)
 {
 	push(stack_a, stack_b);
 	ft_printf("pb\n");

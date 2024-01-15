@@ -10,18 +10,30 @@ SRCS_FIL = \
 			i_push.c \
 			i_rotate.c \
 			i_reverse_rotate.c \
+			list_functions.c \
 			sort_under_six.c \
 			assign_index.c \
-			list_functions.c \
 			three_way_quick_sort.c \
 			split_chunk_utils.c \
 			move.c \
-			# checker_bonus.c 
 
 SRCS = $(addprefix $(SRCDIR), $(SRCS_FIL))
 
 OBJDIR = objs/
 OBJS = $(addprefix $(OBJDIR), $(notdir $(SRCS:.c=.o)))
+
+# bonus
+# BONUS_SRCS_FIL = \
+# 				check_input_error.c \
+# 				i_swap.c \
+# 				i_push.c \
+# 				i_rotate.c \
+# 				i_reverse_rotate.c \
+# 				list_functions.c \
+# 				checker_bonus.c
+# BONUS_SRCS = $(addprefix $(SRCDIR), $(BONUS_SRCS_FIL))
+# BONUS_OBJS = $(addprefix $(OBJDIR), $(notdir $(BONUS_SRCS:.c=.o)))
+
 
 # library
 LIBFTDIR = libft/
@@ -34,7 +46,7 @@ CHECKER = checker
 
 all:  $(OBJDIR) $(PUSH_SWAP)
 
-bonus: $(CHECKER) 
+bonus: $(OBJDIR) $(CHECKER) 
 
 $(OBJDIR):
 		mkdir -p $(OBJDIR)
@@ -42,6 +54,11 @@ $(OBJDIR):
 $(PUSH_SWAP): $(OBJS)
 		make bonus -C $(LIBFTDIR)
 		$(CC) $(CFLAGS) $(OBJS) -o $(PUSH_SWAP) -L$(LIBFTDIR) -lft
+
+$(CHECKER): $(BONUS_OBJS)
+		make bonus -C $(LIBFTDIR)
+		$(CC) $(CFLAGS) $(BONUS_OBJS) -o $(CHECKER) -L$(LIBFTDIR) -lft
+
 
 $(OBJDIR)%.o: $(SRCDIR)%.c
 	$(CC) $(CFLAGS) -c $< -o $@

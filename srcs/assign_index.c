@@ -6,16 +6,16 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:08:25 by sting             #+#    #+#             */
-/*   Updated: 2024/01/10 16:21:26 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/15 16:17:41 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	assign_index(t_list *stack)
+void	assign_index(t_stack *stack)
 {
-	t_list	*tmp1;
-	t_list	*tmp2;
+	t_stack	*tmp1;
+	t_stack	*tmp2;
 	int		count;
 
 	tmp1 = stack;

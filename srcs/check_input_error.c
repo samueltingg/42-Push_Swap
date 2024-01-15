@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checkers.c                                         :+:      :+:    :+:   */
+/*   check_input_error.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:22:04 by sting             #+#    #+#             */
-/*   Updated: 2024/01/11 10:08:59 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/15 16:17:41 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,14 @@ long	ft_atol(const char *str)
 	return (result * sign);
 }
 
-void	free_n_exit(t_list *ptr)
+void	free_n_exit(t_stack *ptr)
 {
 	ft_putstr_fd("Error\n", 2);
 	delete_list(ptr);
 	exit(-1);
 }
 
-void	check_valid_arg(char *str, t_list *stack)
+void	check_valid_arg(char *str, t_stack *stack)
 {
 	long	nbr;
 	int		i;
@@ -65,9 +65,9 @@ void	check_valid_arg(char *str, t_list *stack)
 		free_n_exit(stack);
 }
 
-void	check_duplicates(t_list *head)
+void	check_duplicates(t_stack *head)
 {
-	t_list	*runner;
+	t_stack	*runner;
 
 	while (head)
 	{
@@ -82,9 +82,9 @@ void	check_duplicates(t_list *head)
 	}
 }
 
-int	is_sorted(t_list *stack)
+int	is_sorted(t_stack *stack)
 {
-	t_list	*next;
+	t_stack	*next;
 
 	while (stack)
 	{

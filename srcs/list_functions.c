@@ -6,15 +6,15 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:58 by sting             #+#    #+#             */
-/*   Updated: 2024/01/10 16:23:57 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/15 16:27:54 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	delete_list(t_list *list)
+void	delete_list(t_stack *list)
 {
-	t_list	*next_node;
+	t_stack	*next_node;
 
 	while (list)
 	{
@@ -24,11 +24,11 @@ void	delete_list(t_list *list)
 	}
 }
 
-t_list	*ft_lstnew_d(int nbr)
+t_stack	*ft_lstnew_d(int nbr)
 {
-	t_list	*new_node;
+	t_stack	*new_node;
 
-	new_node = (t_list *)malloc(sizeof(t_list));
+	new_node = (t_stack *)malloc(sizeof(t_stack));
 	if (new_node == NULL)
 	{
 		ft_printf("Error\n");
@@ -40,7 +40,7 @@ t_list	*ft_lstnew_d(int nbr)
 	return (new_node);
 }
 
-void	ft_lstadd_back_d(t_list **lst, t_list *new)
+void	ft_lstadd_back_d(t_stack **lst, t_stack *new)
 {
 	if (!lst)
 		return ;
@@ -49,6 +49,32 @@ void	ft_lstadd_back_d(t_list **lst, t_list *new)
 		*lst = new;
 		return ;
 	}
-	new->prev = ft_lstlast(*lst);
-	(ft_lstlast(*lst))->next = new;
+	new->prev = ft_lstlast_d(*lst);
+	(ft_lstlast_d(*lst))->next = new;
+}
+
+int	ft_lstsize_d(t_stack *lst)
+{
+	int	count;
+
+	if (!lst)
+		return (0);
+	count = 0;
+	while (lst != NULL)
+	{
+		lst = lst->next;
+		count++;
+	}
+	return (count);
+}
+
+t_stack	*ft_lstlast_d(t_stack *lst)
+{
+	if (!lst)
+		return (NULL);
+	while (lst->next != NULL)
+	{
+		lst = lst->next;
+	}
+	return (lst);
 }

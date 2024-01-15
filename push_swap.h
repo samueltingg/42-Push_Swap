@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:07:01 by sting             #+#    #+#             */
-/*   Updated: 2024/01/11 10:55:08 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/15 16:27:08 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,21 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+typedef struct s_stack
+{
+	struct s_stack	*prev;
+	int				nbr;
+	int				index;
+	struct s_stack	*next;
+}					t_stack;
+
 typedef struct s_pv
 {
-	int			small;
-	int			large;
-}				t_pv;
+	int				small;
+	int				large;
+}					t_pv;
 
-enum			e_loc
+enum				e_loc
 {
 	TOP_A,
 	BOT_A,
@@ -35,122 +43,125 @@ enum			e_loc
 
 typedef struct s_chunk
 {
-	enum e_loc	loc;
-	int			size;
-}				t_chunk;
+	enum e_loc		loc;
+	int				size;
+}					t_chunk;
 
 typedef struct s_split_destt
 {
-	t_chunk		min;
-	t_chunk		mid;
-	t_chunk		max;
-	enum e_loc	cur_loc;
-}				t_split_dest;
+	t_chunk			min;
+	t_chunk			mid;
+	t_chunk			max;
+	enum e_loc		cur_loc;
+}					t_split_dest;
 
 // UTILS
-long			ft_atol(const char *str);
-void			delete_list(t_list *list);
+long				ft_atol(const char *str);
+void				delete_list(t_stack *list);
 
-t_list			*ft_lstnew_d(int nbr);
-void			ft_lstadd_back_d(t_list **lst, t_list *new);
+t_stack				*ft_lstnew_d(int nbr);
+void				ft_lstadd_back_d(t_stack **lst, t_stack *new);
+int					ft_lstsize_d(t_stack *lst);
+t_stack				*ft_lstlast_d(t_stack *lst);
 
 // CHECKING
 /**
  * @brief when encounter invalid input, prints "Error\n" & exit program.
  */
-void			check_valid_arg(char *str, t_list *stack);
+void				check_valid_arg(char *str, t_stack *stack);
 /**
  * @brief counts number of words separated by space(s).
  */
-int				count_words(char const *str);
-void			free_n_exit(t_list *ptr);
+int					count_words(char const *str);
+void				free_n_exit(t_stack *ptr);
 
 /**
  * @brief when encounter duplicates, prints "Error\n" & exit program.
  */
-void			check_duplicates(t_list *head);
-int				is_sorted(t_list *stack);
+void				check_duplicates(t_stack *head);
+int					is_sorted(t_stack *stack);
 
 // INSTRUCTIONS
 /**
  * @brief swaps 2 int values without moving nodes
  */
-int				swap(t_list *stack);
-void			sa(t_list *stack_a);
-void			sb(t_list *stack_b);
-void			ss(t_list *stack_a, t_list *stack_b);
+int					swap(t_stack *stack);
+void				sa(t_stack *stack_a);
+void				sb(t_stack *stack_b);
+void				ss(t_stack *stack_a, t_stack *stack_b);
 
-void			push(t_list **stack_x, t_list **stack_y);
+void				push(t_stack **stack_x, t_stack **stack_y);
 /**
  * @brief Take 1st element at top of b and put it at top of a
  */
-void			pa(t_list **stack_b, t_list **stack_a);
+void				pa(t_stack **stack_b, t_stack **stack_a);
 /**
  * @brief Take 1st element at top of a and put it at top of b
  */
-void			pb(t_list **stack_a, t_list **stack_b);
+void				pb(t_stack **stack_a, t_stack **stack_b);
 
-void			rotate(t_list **stack);
+void				rotate(t_stack **stack);
 /**
  * @brief Shift up all elements of stack a by 1.
 			The first element becomes the last one.
 */
-void			ra(t_list **stack_a);
+void				ra(t_stack **stack_a);
 /**
  * @brief Shift up all elements of stack a by 1.
 			The first element becomes the last one.
 */
-void			rb(t_list **stack_b);
-void			rr(t_list **stack_a, t_list **stack_b);
+void				rb(t_stack **stack_b);
+void				rr(t_stack **stack_a, t_stack **stack_b);
 
-void			reverse_rotate(t_list **stack);
+void				reverse_rotate(t_stack **stack);
 /**
  * @brief Shift down all elements of stack by 1.
 			The last element becomes the first one
 */
-void			rra(t_list **stack_a);
+void				rra(t_stack **stack_a);
 /**
  * @brief Shift down all elements of stack by 1.
 			The last element becomes the first one
 */
-void			rrb(t_list **stack_b);
-void			rrr(t_list **stack_a, t_list **stack_b);
+void				rrb(t_stack **stack_b);
+void				rrr(t_stack **stack_a, t_stack **stack_b);
 
 // SORT UNDER SIX
-void			sort3(t_list **stack);
-void			insertion_sort(t_list **stack_a, t_list **stack_b);
+void				sort3(t_stack **stack);
+void				insertion_sort(t_stack **stack_a, t_stack **stack_b);
 /**
  * @brief sorts 4/5 numbers, implements insertion sort & "sort3"
  */
-void			sort4_or_5(t_list **stack_a, t_list **stack_b, int nbr_count);
+void				sort4_or_5(t_stack **stack_a, t_stack **stack_b,
+						int nbr_count);
 
 // Assigning index
-void			assign_index(t_list *stack);
+void				assign_index(t_stack *stack);
 
-t_list			*starting_node(t_list *stack_a, t_list *stack_b,
-					enum e_loc cur_loc);
-int				find_max_index(t_list *stack_a, t_list *stack_b,
-					enum e_loc cur_loc, int cur_chunk_size);
-void			set_split_loc(enum e_loc loc, t_chunk *min, t_chunk *mid,
-					t_chunk *max);
-void			init_chunk_size(t_split_dest *dest);
+t_stack				*starting_node(t_stack *stack_a, t_stack *stack_b,
+						enum e_loc cur_loc);
+int					find_max_index(t_stack *stack_a, t_stack *stack_b,
+						enum e_loc cur_loc, int cur_chunk_size);
+void				set_split_loc(enum e_loc loc, t_chunk *min, t_chunk *mid,
+						t_chunk *max);
+void				init_chunk_size(t_split_dest *dest);
 
 // MOVE
-int				move_from_to(enum e_loc from, enum e_loc to, t_list **stack_a,
-					t_list **stack_b);
-void			move_from_top_a(t_list **stack_a, t_list **stack_b,
-					enum e_loc to);
-void			move_from_top_b(t_list **stack_a, t_list **stack_b,
-					enum e_loc to);
-void			move_from_bottom_a(t_list **stack_a, t_list **stack_b,
-					enum e_loc to);
-void			move_from_bottom_b(t_list **stack_a, t_list **stack_b,
-					enum e_loc to);
+int					move_from_to(enum e_loc from, enum e_loc to,
+						t_stack **stack_a, t_stack **stack_b);
+void				move_from_top_a(t_stack **stack_a, t_stack **stack_b,
+						enum e_loc to);
+void				move_from_top_b(t_stack **stack_a, t_stack **stack_b,
+						enum e_loc to);
+void				move_from_bottom_a(t_stack **stack_a, t_stack **stack_b,
+						enum e_loc to);
+void				move_from_bottom_b(t_stack **stack_a, t_stack **stack_b,
+						enum e_loc to);
 
 // 3-way Quick Sort
-void			quick_sort_3way(t_list **stack_a, t_list **stack_b,
-					enum e_loc cur_loc, int cur_chunksize);
-t_split_dest	*split_to_3_chunks(t_list **stack_a, t_list **stack_b,
-					enum e_loc cur_loc, int cur_chunk_size);
+void				quick_sort_3way(t_stack **stack_a, t_stack **stack_b,
+						enum e_loc cur_loc, int cur_chunksize);
+t_split_dest		*split_to_3_chunks(t_stack **stack_a, t_stack **stack_b,
+						enum e_loc cur_loc, int cur_chunk_size);
 
 #endif

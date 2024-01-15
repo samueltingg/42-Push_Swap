@@ -6,13 +6,13 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:45 by sting             #+#    #+#             */
-/*   Updated: 2024/01/10 16:19:16 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/15 16:17:41 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	swap(t_list *stack)
+int	swap(t_stack *stack)
 {
 	int	tmp;
 
@@ -26,19 +26,19 @@ int	swap(t_list *stack)
 	return (0);
 }
 
-void	sa(t_list *stack_a)
+void	sa(t_stack *stack_a)
 {
 	swap(stack_a);
 	ft_printf("sa\n");
 }
 
-void	sb(t_list *stack_b)
+void	sb(t_stack *stack_b)
 {
 	swap(stack_b);
 	ft_printf("sb\n");
 }
 
-void	ss(t_list *stack_a, t_list *stack_b)
+void	ss(t_stack *stack_a, t_stack *stack_b)
 {
 	swap(stack_a);
 	swap(stack_b);

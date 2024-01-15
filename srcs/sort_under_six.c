@@ -6,17 +6,17 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:37:48 by sting             #+#    #+#             */
-/*   Updated: 2024/01/09 15:08:52 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/15 16:28:14 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	sort3(t_list **stack)
+void	sort3(t_stack **stack)
 {
-	t_list	*first;
-	t_list	*second;
-	t_list	*third;
+	t_stack	*first;
+	t_stack	*second;
+	t_stack	*third;
 
 	first = *stack;
 	second = (*stack)->next;
@@ -29,7 +29,7 @@ void	sort3(t_list **stack)
 		sa(*stack);
 }
 
-static int	find_smallest_nbr(t_list *stack)
+static int	find_smallest_nbr(t_stack *stack)
 {
 	int	smallest;
 
@@ -44,13 +44,13 @@ static int	find_smallest_nbr(t_list *stack)
 	return (smallest);
 }
 
-static int	if_smallest_in_bottom_half(t_list *stack, int smallest)
+static int	if_smallest_in_bottom_half(t_stack *stack, int smallest)
 {
 	int	lstsize;
 	int	half;
 
 	half = 0;
-	lstsize = ft_lstsize(stack);
+	lstsize = ft_lstsize_d(stack);
 	while (half < lstsize / 2)
 	{
 		stack = stack->next;
@@ -69,7 +69,7 @@ static int	if_smallest_in_bottom_half(t_list *stack, int smallest)
 }
 // line 59: smallest nb in middle is not counted
 
-void	sort4_or_5(t_list **stack_a, t_list **stack_b, int nbr_count)
+void	sort4_or_5(t_stack **stack_a, t_stack **stack_b, int nbr_count)
 {
 	int	smallest;
 	int	i;

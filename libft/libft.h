@@ -6,25 +6,32 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 10:23:09 by sting             #+#    #+#             */
-/*   Updated: 2024/01/15 13:23:30 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/15 16:20:16 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include "ft_printf/ft_printf.h"
 # include <limits.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include "ft_printf/ft_printf.h"
 
 typedef struct s_list
 {
-	struct s_list	*prev;
-	int				nbr;
-	int				index;
+	void			*content;
 	struct s_list	*next;
 }					t_list;
+
+// typedef struct s_list
+// {
+// 	struct s_list	*prev;
+// 	int				nbr;
+// 	int				index;
+// 	struct s_list	*next;
+// }					t_list;
+
 
 int					ft_atoi(const char *str);
 void				ft_bzero(void *s, size_t n);
@@ -71,6 +78,6 @@ t_list				*ft_lstlast(t_list *lst);
 // void				ft_lstclear(t_list **lst, void (*del)(void *));
 // void				ft_lstiter(t_list *lst, void (*f)(void *));
 // t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
-						// void (*del)(void *));
+// void (*del)(void *));
 
 #endif

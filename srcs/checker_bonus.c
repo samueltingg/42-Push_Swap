@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:50 by sting             #+#    #+#             */
-/*   Updated: 2024/01/11 15:23:31 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/15 16:17:41 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 int main(int argc, char **argv)
 {
     int		i;
-	t_list	*stack_a;
-	t_list	*stack_b;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -32,6 +32,8 @@ int main(int argc, char **argv)
 		}
 	}
 	check_duplicates(stack_a);
-	if (is_sorted(stack_a))
-		exit(-1);
+
+	// ...
+	
+	delete_list(stack_a);
 }

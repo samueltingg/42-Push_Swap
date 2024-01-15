@@ -6,16 +6,16 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:08:25 by sting             #+#    #+#             */
-/*   Updated: 2024/01/11 09:00:45 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/15 16:17:41 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	find_max_index(t_list *stack_a, t_list *stack_b, enum e_loc cur_loc,
+int	find_max_index(t_stack *stack_a, t_stack *stack_b, enum e_loc cur_loc,
 		int cur_chunk_size)
 {
-	t_list	*node;
+	t_stack	*node;
 	int		max_index;
 
 	node = NULL;

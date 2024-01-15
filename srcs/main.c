@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:50 by sting             #+#    #+#             */
-/*   Updated: 2024/01/11 09:43:22 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/15 16:24:52 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	count_words(char const *str)
 	return (count);
 }
 
-void	check_n_add_arg_to_stack(int argc, char **argv, int i, t_list **stack_a)
+void	check_n_add_arg_to_stack(int argc, char **argv, int i, t_stack **stack_a)
 {
 	char	**str_array;
 	int		j;
@@ -61,11 +61,11 @@ void	check_n_add_arg_to_stack(int argc, char **argv, int i, t_list **stack_a)
 		free_n_exit(*stack_a);
 }
 
-void	sort(t_list **stack_a, t_list **stack_b)
+void	sort(t_stack **stack_a, t_stack **stack_b)
 {
 	int	nbr_count;
 
-	nbr_count = ft_lstsize(*stack_a);
+	nbr_count = ft_lstsize_d(*stack_a);
 	if (nbr_count == 2)
 	{
 		if ((*stack_a)->nbr > ((*stack_a)->next)->nbr)
@@ -85,8 +85,8 @@ void	sort(t_list **stack_a, t_list **stack_b)
 int	main(int argc, char **argv)
 {
 	int		i;
-	t_list	*stack_a;
-	t_list	*stack_b;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 
 	stack_a = NULL;
 	stack_b = NULL;

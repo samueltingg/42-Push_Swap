@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 10:49:43 by sting             #+#    #+#             */
-/*   Updated: 2024/01/10 16:20:50 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/15 16:25:12 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
  * @brief Shift up all elements of stack a by 1.
 			The first element becomes the last one.
 */
-void	rotate(t_list **stack)
+void	rotate(t_stack **stack)
 {
-	t_list	*first_node;
-	t_list	*last_node;
+	t_stack	*first_node;
+	t_stack	*last_node;
 
 	first_node = *stack;
-	last_node = ft_lstlast(*stack);
+	last_node = ft_lstlast_d(*stack);
 	*stack = first_node->next;
 	(*stack)->prev = NULL;
 	last_node->next = first_node;
@@ -30,7 +30,7 @@ void	rotate(t_list **stack)
 	first_node->next = NULL;
 }
 
-void	ra(t_list **stack_a)
+void	ra(t_stack **stack_a)
 {
 	if ((*stack_a)->next == NULL)
 		return ;
@@ -38,7 +38,7 @@ void	ra(t_list **stack_a)
 	ft_printf("ra\n");
 }
 
-void	rb(t_list **stack_b)
+void	rb(t_stack **stack_b)
 {
 	if ((*stack_b)->next == NULL)
 		return ;
@@ -46,7 +46,7 @@ void	rb(t_list **stack_b)
 	ft_printf("rb\n");
 }
 
-void	rr(t_list **stack_a, t_list **stack_b)
+void	rr(t_stack **stack_a, t_stack **stack_b)
 {
 	if ((*stack_a)->next == NULL)
 		return ;

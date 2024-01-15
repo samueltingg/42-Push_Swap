@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/26 14:55:13 by sting             #+#    #+#             */
-/*   Updated: 2023/12/07 13:38:32 by sting            ###   ########.fr       */
+/*   Updated: 2023/10/27 08:07:42 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
 	if (!lst || !del)
 		return ;
-	del(lst->nbr);
+	del(lst->content);
 	free(lst);
 }

@@ -6,14 +6,14 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 10:23:09 by sting             #+#    #+#             */
-/*   Updated: 2023/12/05 10:31:28 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/11 16:12:16 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include "./libft.h"
+# include "../libft.h"
 # include <stdarg.h>
 # include <stdio.h>
 

@@ -16,13 +16,14 @@ SRCS_FIL = \
 			three_way_quick_sort.c \
 			split_chunk_utils.c \
 			move.c \
+			checker_bonus.c 
 
 SRCS = $(addprefix $(SRCDIR), $(SRCS_FIL))
 
 OBJDIR = objs/
 OBJS = $(addprefix $(OBJDIR), $(notdir $(SRCS:.c=.o)))
 
-
+# library
 LIBFTDIR = libft/
 LIBFT.A = $(LIBFTDIR)libft.a
 
@@ -32,6 +33,8 @@ PUSH_SWAP = push_swap
 CHECKER = checker
 
 all:  $(OBJDIR) $(PUSH_SWAP)
+
+bonus: $(CHECKER) 
 
 $(OBJDIR):
 		mkdir -p $(OBJDIR)

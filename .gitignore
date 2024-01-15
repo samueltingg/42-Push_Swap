@@ -1,7 +1,8 @@
 *.o
 *.a
-.DS_store
+.DS_Store
 .vscode/
+a.out/dSYM
 push_swap
 output.txt
 gemartin_push_swap_tester/

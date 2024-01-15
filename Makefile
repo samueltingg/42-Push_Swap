@@ -16,7 +16,7 @@ SRCS_FIL = \
 			three_way_quick_sort.c \
 			split_chunk_utils.c \
 			move.c \
-			checker_bonus.c 
+			# checker_bonus.c 
 
 SRCS = $(addprefix $(SRCDIR), $(SRCS_FIL))
 

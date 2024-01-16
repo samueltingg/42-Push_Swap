@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:07:01 by sting             #+#    #+#             */
-/*   Updated: 2024/01/16 11:13:47 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/16 14:00:49 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,10 +69,6 @@ t_stack				*ft_lstlast_d(t_stack *lst);
  * @brief when encounter invalid input, prints "Error\n" & exit program.
  */
 void				check_valid_arg(char *str, t_stack *stack);
-/**
- * @brief counts number of words separated by space(s).
- */
-int					count_words(char const *str);
 void				free_n_exit(t_stack *ptr);
 
 /**

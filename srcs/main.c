@@ -6,13 +6,13 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:50 by sting             #+#    #+#             */
-/*   Updated: 2024/01/16 11:13:47 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/16 13:58:50 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	count_words(char const *str)
+static int	count_words(char const *str)
 {
 	int	count;
 	int	flag;
@@ -33,7 +33,7 @@ int	count_words(char const *str)
 	return (count);
 }
 
-void	check_n_add_arg_to_stack(int argc, char **argv, int i,
+static void	check_n_add_arg_to_stack(int argc, char **argv, int i,
 		t_stack **stack_a)
 {
 	char	**str_array;

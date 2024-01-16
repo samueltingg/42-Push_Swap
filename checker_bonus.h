@@ -69,10 +69,6 @@ t_stack				*ft_lstlast_d(t_stack *lst);
  * @brief when encounter invalid input, prints "Error\n" & exit program.
  */
 void				check_valid_arg(char *str, t_stack *stack);
-/**
- * @brief counts number of words separated by space(s).
- */
-int					count_words(char const *str);
 void				free_n_exit(t_stack *ptr);
 
 /**
@@ -86,44 +82,44 @@ int					is_sorted(t_stack *stack);
  * @brief swaps 2 int values without moving nodes
  */
 int					swap(t_stack *stack);
-void				sa(t_stack *stack_a);
-void				sb(t_stack *stack_b);
-void				ss(t_stack *stack_a, t_stack *stack_b);
+void				do_sa(t_stack *stack_a);
+void				do_sb(t_stack *stack_b);
+void				do_ss(t_stack *stack_a, t_stack *stack_b);
 
 void				push(t_stack **stack_x, t_stack **stack_y);
 /**
  * @brief Take 1st element at top of b and put it at top of a
  */
-void				pa(t_stack **stack_b, t_stack **stack_a);
+void				do_pa(t_stack **stack_b, t_stack **stack_a);
 /**
  * @brief Take 1st element at top of a and put it at top of b
  */
-void				pb(t_stack **stack_a, t_stack **stack_b);
+void				do_pb(t_stack **stack_a, t_stack **stack_b);
 
 void				rotate(t_stack **stack);
 /**
  * @brief Shift up all elements of stack a by 1.
 			The first element becomes the last one.
 */
-void				ra(t_stack **stack_a);
+void				do_ra(t_stack **stack_a);
 /**
  * @brief Shift up all elements of stack a by 1.
 			The first element becomes the last one.
 */
-void				rb(t_stack **stack_b);
-void				rr(t_stack **stack_a, t_stack **stack_b);
+void				do_rb(t_stack **stack_b);
+void				do_rr(t_stack **stack_a, t_stack **stack_b);
 
 void				reverse_rotate(t_stack **stack);
 /**
  * @brief Shift down all elements of stack by 1.
 			The last element becomes the first one
 */
-void				rra(t_stack **stack_a);
+void				do_rra(t_stack **stack_a);
 /**
  * @brief Shift down all elements of stack by 1.
 			The last element becomes the first one
 */
-void				rrb(t_stack **stack_b);
-void				rrr(t_stack **stack_a, t_stack **stack_b);
+void				do_rrb(t_stack **stack_b);
+void				do_rrr(t_stack **stack_a, t_stack **stack_b);
 
 #endif

@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -std=c99  
+CFLAGS = -Wall -Wextra -Werror -std=c99 
 # -fsanitize=address -g
 
 SRCDIR = srcs/
@@ -23,16 +23,20 @@ OBJDIR = objs/
 OBJS = $(addprefix $(OBJDIR), $(notdir $(SRCS:.c=.o)))
 
 # bonus
-# BONUS_SRCS_FIL = \
-# 				check_input_error.c \
-# 				i_swap.c \
-# 				i_push.c \
-# 				i_rotate.c \
-# 				i_reverse_rotate.c \
-# 				list_functions.c \
-# 				checker_bonus.c
-# BONUS_SRCS = $(addprefix $(SRCDIR), $(BONUS_SRCS_FIL))
-# BONUS_OBJS = $(addprefix $(OBJDIR), $(notdir $(BONUS_SRCS:.c=.o)))
+BONUS_SRCS_FIL = \
+				check_input_error.c \
+				i_swap.c \
+				i_push.c \
+				i_rotate.c \
+				i_reverse_rotate.c \
+				list_functions.c \
+				checker_bonus.c \
+				do_swap_push_bonus.c \
+				do_rotate_bonus.c \
+				do_reverse_rotate_bonus.c 
+# ^ last line for source files can't end with '\'
+BONUS_SRCS = $(addprefix $(SRCDIR), $(BONUS_SRCS_FIL))
+BONUS_OBJS = $(addprefix $(OBJDIR), $(notdir $(BONUS_SRCS:.c=.o)))
 
 
 # library
@@ -43,6 +47,11 @@ LIBFT.A = $(LIBFTDIR)libft.a
 NAME = $(PUSH_SWAP) $(CHECKER)
 PUSH_SWAP = push_swap
 CHECKER = checker
+
+# Include checker_bonus.h only when building the bonus target
+ifeq ($(MAKECMDGOALS),bonus)
+    HEADER_FILES += -I./checker_bonus.h
+endif
 
 all:  $(OBJDIR) $(PUSH_SWAP)
 
@@ -61,7 +70,7 @@ $(CHECKER): $(BONUS_OBJS)
 
 
 $(OBJDIR)%.o: $(SRCDIR)%.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(HEADER_FILES) -c $< -o $@
 
 RM = rm -f
 
@@ -71,7 +80,7 @@ clean:
 		make clean -C ${LIBFTDIR}
 
 fclean: clean
-		$(RM) $(PUSH_SWAP)
+		$(RM) $(PUSH_SWAP) $(CHECKER)
 		make fclean -C $(LIBFTDIR)
 
 re: fclean all

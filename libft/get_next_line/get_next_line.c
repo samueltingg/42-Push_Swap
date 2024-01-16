@@ -6,12 +6,12 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:30:12 by sting             #+#    #+#             */
-/*   Updated: 2024/01/16 10:17:03 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/16 16:31:14 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-Repeated calls (e.g. using a loop) to get_next_line() function 
+Repeated calls (e.g. using a loop) to get_next_line() function
 	should read text file pointed to by the file descriptor,
 	one line at a time.
 • function returns the line that was read.
@@ -23,7 +23,6 @@ int	find_newline(t_list *list)
 {
 	int	i;
 
-	
 	while (list != NULL)
 	{
 		i = 0;
@@ -100,15 +99,17 @@ void	store_leftover_str(t_list **list)
 	leftover_node = NULL;
 	last_node = ft_lstlast(*list);
 	i = count_to_nl(last_node);
-	if (!(((char *)last_node->content)[i] == '\0' || (((char *)last_node->content)[i] == '\n'
-				&& ((char *)last_node->content)[i + 1] == '\0')))
+	if (!(((char *)last_node->content)[i] == '\0'
+		|| (((char *)last_node->content)[i] == '\n'
+		&& ((char *)last_node->content)[i + 1] == '\0')))
 	{
 		leftover_node = (t_list *)malloc(sizeof(t_list));
 		leftover_node->content = (char *)malloc(BUFFER_SIZE + 1);
 		if (!leftover_node || !(leftover_node->content))
 			return ;
 		j = 0;
-		while (((char *)last_node->content)[i] != '\0' && ((char *)last_node->content)[++i])
+		while (((char *)last_node->content)[i] != '\0'
+			&& ((char *)last_node->content)[++i])
 			((char *)leftover_node->content)[j++] = ((char *)last_node->content)[i];
 		((char *)leftover_node->content)[j] = '\0';
 		leftover_node->next = NULL;

@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 10:30:12 by sting             #+#    #+#             */
-/*   Updated: 2024/01/16 10:20:23 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/16 16:31:35 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,8 @@ void	store_leftover_str(t_list **list)
 	leftover_node = NULL;
 	last_node = ft_lstlast(*list);
 	i = count_to_nl(last_node);
-	if (!(((char *)last_node->content)[i] == '\0' || (((char *)last_node->content)[i] == '\n'
+	if (!(((char *)last_node->content)[i] == '\0'
+			|| (((char *)last_node->content)[i] == '\n'
 				&& ((char *)last_node->content)[i + 1] == '\0')))
 	{
 		leftover_node = (t_list *)malloc(sizeof(t_list));
@@ -107,7 +108,8 @@ void	store_leftover_str(t_list **list)
 		if (!leftover_node || !(leftover_node->content))
 			return ;
 		j = 0;
-		while (((char *)last_node->content)[i] != '\0' && ((char *)last_node->content)[++i])
+		while (((char *)last_node->content)[i] != '\0'
+			&& ((char *)last_node->content)[++i])
 			((char *)leftover_node->content)[j++] = ((char *)last_node->content)[i];
 		((char *)leftover_node->content)[j] = '\0';
 		leftover_node->next = NULL;

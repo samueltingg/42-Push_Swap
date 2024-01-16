@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:58 by sting             #+#    #+#             */
-/*   Updated: 2024/01/16 13:47:45 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/16 16:34:27 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	delete_stack(t_stack *list)
 	t_stack	*next_node;
 
 	if (list == NULL)
-		return;
+		return ;
 	while (list)
 	{
 		next_node = list->next;

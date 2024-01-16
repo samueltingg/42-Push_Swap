@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 13:13:22 by sting             #+#    #+#             */
-/*   Updated: 2024/01/15 16:27:34 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/16 15:43:34 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	reverse_rotate(t_stack **stack)
 {
 	t_stack	*last_node;
 
+	if (!stack || !(*stack))
+		return ;
 	last_node = ft_lstlast_d(*stack);
 	(last_node->prev)->next = NULL;
 	last_node->next = *stack;
@@ -26,7 +28,7 @@ void	reverse_rotate(t_stack **stack)
 
 void	rra(t_stack **stack_a)
 {
-	if ((*stack_a)->next == NULL)
+	if (*stack_a && (*stack_a)->next == NULL)
 		return ;
 	reverse_rotate(stack_a);
 	ft_printf("rra\n");
@@ -34,7 +36,7 @@ void	rra(t_stack **stack_a)
 
 void	rrb(t_stack **stack_b)
 {
-	if ((*stack_b)->next == NULL)
+	if (*stack_b && (*stack_b)->next == NULL)
 		return ;
 	reverse_rotate(stack_b);
 	ft_printf("rrb\n");
@@ -42,9 +44,9 @@ void	rrb(t_stack **stack_b)
 
 void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
-	if ((*stack_a)->next == NULL)
+	if (*stack_a && (*stack_a)->next == NULL)
 		return ;
-	if ((*stack_b)->next == NULL)
+	if (*stack_b && (*stack_b)->next == NULL)
 		return ;
 	reverse_rotate(stack_a);
 	reverse_rotate(stack_b);

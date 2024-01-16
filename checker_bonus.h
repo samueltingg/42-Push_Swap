@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef CHECKER_BONUS_H
+# define CHECKER_BONUS_H
 
 # include "./libft/libft.h"
 # include <limits.h>
@@ -26,34 +26,6 @@ typedef struct s_stack
 	int				index;
 	struct s_stack	*next;
 }					t_stack;
-
-// typedef struct s_pv
-// {
-// 	int				small;
-// 	int				large;
-// }					t_pv;
-
-// enum				e_loc
-// {
-// 	TOP_A,
-// 	BOT_A,
-// 	TOP_B,
-// 	BOT_B
-// };
-
-// typedef struct s_chunk
-// {
-// 	enum e_loc		loc;
-// 	int				size;
-// }					t_chunk;
-
-// typedef struct s_split_destt
-// {
-// 	t_chunk			min;
-// 	t_chunk			mid;
-// 	t_chunk			max;
-// 	enum e_loc		cur_loc;
-// }					t_split_dest;
 
 // UTILS
 long				ft_atol(const char *str);

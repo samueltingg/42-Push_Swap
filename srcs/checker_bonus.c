@@ -6,19 +6,17 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:50 by sting             #+#    #+#             */
-/*   Updated: 2024/01/16 15:23:42 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/16 16:32:52 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker_bonus.h"
 
-void	do_instruction_based_on_input(char *input, t_stack **stack_a,
-		t_stack **stack_b)
+void	do_instruction_based_on_input(const char *instruction,
+		t_stack **stack_a, t_stack **stack_b)
 {
-	size_t		strlen;
-	const char	*instruction;
+	size_t	strlen;
 
-	instruction = (const char *)input;
 	strlen = ft_strlen(instruction);
 	if (ft_strncmp(instruction, "sa\n", strlen) == 0)
 		do_sa(*stack_a);
@@ -125,7 +123,8 @@ int	main(int argc, char **argv)
 		input = get_next_line(0);
 		if (input == NULL)
 			break ;
-		do_instruction_based_on_input(input, &stack_a, &stack_b);
+		do_instruction_based_on_input((const char *)input, &stack_a, &stack_b);
+		free(input);
 	}
 	if (is_sorted(stack_a) && stack_b == NULL)
 		ft_printf("OK");

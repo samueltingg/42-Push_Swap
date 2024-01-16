@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   do_rotate_rr_bonus.c                               :+:      :+:    :+:   */
+/*   do_rotate_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:45 by sting             #+#    #+#             */
-/*   Updated: 2024/01/16 15:05:58by sting            ###   ########.fr       */
+/*   Updated: 2024/01/16 16:33:52 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,23 @@
 
 void	do_ra(t_stack **stack_a)
 {
-	if ((*stack_a)->next == NULL)
+	if (*stack_a && (*stack_a)->next == NULL)
 		return ;
 	rotate(stack_a);
 }
 
 void	do_rb(t_stack **stack_b)
 {
-	if ((*stack_b)->next == NULL)
+	if (*stack_b && (*stack_b)->next == NULL)
 		return ;
 	rotate(stack_b);
 }
 
 void	do_rr(t_stack **stack_a, t_stack **stack_b)
 {
-	if ((*stack_a)->next == NULL)
+	if (*stack_a && (*stack_a)->next == NULL)
 		return ;
-	if ((*stack_b)->next == NULL)
+	if (*stack_b && (*stack_b)->next == NULL)
 		return ;
 	rotate(stack_a);
 	rotate(stack_b);

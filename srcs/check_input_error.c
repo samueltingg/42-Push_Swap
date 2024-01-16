@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:22:04 by sting             #+#    #+#             */
-/*   Updated: 2024/01/15 16:17:41 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/16 11:13:47 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ long	ft_atol(const char *str)
 void	free_n_exit(t_stack *ptr)
 {
 	ft_putstr_fd("Error\n", 2);
-	delete_list(ptr);
+	delete_stack(ptr);
 	exit(-1);
 }
 

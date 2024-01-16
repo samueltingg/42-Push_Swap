@@ -14,9 +14,8 @@ OBJS = $(SRCS:.c=.o)
 
 # bonus
 BONUS_SRCS = \
-		ft_lstadd_front.c ft_lstsize.c ft_lstadd_back.c \
-		# ft_lstnew.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c 
-
+		ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstadd_back.c \
+		ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 # ft_printf
@@ -52,14 +51,15 @@ CFLAGS += -Iget_next_line/
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(PRINTF_OBJS) $(GNL_OBJS)
-		ar -rc $(NAME) $(OBJS) $(PRINTF_OBJS) $(GNL_OBJS)
+# $(NAME): $(OBJS) $(PRINTF_OBJS) $(GNL_OBJS)
+# 		ar -rc $(NAME) $(OBJS) $(PRINTF_OBJS) $(GNL_OBJS)
 
-bonus: $(OBJS) $(BONUS_OBJS) $(PRINTF_OBJS) $(GNL_OBJS)
-		ar -rc $(NAME) $(OBJS) $(BONUS_OBJS) $(PRINTF_OBJS) $(GNL_OBJS)
+$(NAME): $(OBJS) $(BONUS_OBJS) $(PRINTF_OBJS) $(GNL_OBJS)
+		@ar -rc $(NAME) $(OBJS) $(BONUS_OBJS) $(PRINTF_OBJS) $(GNL_OBJS)
+# ^run bonus all the time
 
 %.o:%.c
-	cc $(CFLAGS) -c $< -o $@
+	@cc $(CFLAGS) -c $< -o $@
 
 RM = rm -f
 

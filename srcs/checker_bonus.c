@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:50 by sting             #+#    #+#             */
-/*   Updated: 2024/01/15 16:59:27 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/16 11:14:00 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ int main(int argc, char **argv)
 		input = get_next_line(0);
 		if (input == NULL)
 			break;
-		do_instruction_based_on_input(input, stack_a, stack_b)
+		do_instruction_based_on_input(input, stack_a, stack_b);
 		
 	}
 	
-	delete_list(stack_a);
+	delete_stack(stack_a);
 }

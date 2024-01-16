@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:50 by sting             #+#    #+#             */
-/*   Updated: 2024/01/15 16:33:28 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/16 11:13:47 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ int	main(int argc, char **argv)
 	if (is_sorted(stack_a))
 		exit(-1);
 	sort(&stack_a, &stack_b);
-	delete_list(stack_a);
+	delete_stack(stack_a);
 }
 
 // check created stack

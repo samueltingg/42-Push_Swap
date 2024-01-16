@@ -52,11 +52,11 @@ $(OBJDIR):
 		mkdir -p $(OBJDIR)
 
 $(PUSH_SWAP): $(OBJS)
-		make bonus -C $(LIBFTDIR)
+		make -C $(LIBFTDIR)
 		$(CC) $(CFLAGS) $(OBJS) -o $(PUSH_SWAP) -L$(LIBFTDIR) -lft
 
 $(CHECKER): $(BONUS_OBJS)
-		make bonus -C $(LIBFTDIR)
+		make -C $(LIBFTDIR)
 		$(CC) $(CFLAGS) $(BONUS_OBJS) -o $(CHECKER) -L$(LIBFTDIR) -lft
 
 

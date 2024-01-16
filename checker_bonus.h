@@ -57,7 +57,7 @@ typedef struct s_stack
 
 // UTILS
 long				ft_atol(const char *str);
-void				delete_list(t_stack *list);
+void				delete_stack(t_stack *list);
 
 t_stack				*ft_lstnew_d(int nbr);
 void				ft_lstadd_back_d(t_stack **lst, t_stack *new);

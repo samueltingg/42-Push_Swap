@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:07:01 by sting             #+#    #+#             */
-/*   Updated: 2024/01/15 16:27:08 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/16 11:13:47 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct s_split_destt
 
 // UTILS
 long				ft_atol(const char *str);
-void				delete_list(t_stack *list);
+void				delete_stack(t_stack *list);
 
 t_stack				*ft_lstnew_d(int nbr);
 void				ft_lstadd_back_d(t_stack **lst, t_stack *new);

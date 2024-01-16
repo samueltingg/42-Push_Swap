@@ -5,6 +5,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c99
 SRCDIR = srcs/
 SRCS_FIL = \
 			main.c \
+			create_stack.c \
 			check_input_error.c \
 			i_swap.c \
 			i_push.c \
@@ -15,7 +16,7 @@ SRCS_FIL = \
 			assign_index.c \
 			three_way_quick_sort.c \
 			split_chunk_utils.c \
-			move.c \
+			move.c 
 
 SRCS = $(addprefix $(SRCDIR), $(SRCS_FIL))
 
@@ -25,12 +26,13 @@ OBJS = $(addprefix $(OBJDIR), $(notdir $(SRCS:.c=.o)))
 # bonus
 BONUS_SRCS_FIL = \
 				check_input_error.c \
+				create_stack.c \
 				i_swap.c \
 				i_push.c \
 				i_rotate.c \
 				i_reverse_rotate.c \
 				list_functions.c \
-				checker_bonus.c \
+				checker_main_bonus.c \
 				do_swap_push_bonus.c \
 				do_rotate_bonus.c \
 				do_reverse_rotate_bonus.c 

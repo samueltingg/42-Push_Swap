@@ -1,23 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_bonus.c                                    :+:      :+:    :+:   */
+/*   checker_main_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:50 by sting             #+#    #+#             */
-/*   Updated: 2024/01/16 16:32:52 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/16 17:21:10 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../checker_bonus.h"
 
-void	do_instruction_based_on_input(const char *instruction,
+int	do_instruction_if_valid(const char *instruction, int strlen,
 		t_stack **stack_a, t_stack **stack_b)
 {
-	size_t	strlen;
-
-	strlen = ft_strlen(instruction);
 	if (ft_strncmp(instruction, "sa\n", strlen) == 0)
 		do_sa(*stack_a);
 	else if (ft_strncmp(instruction, "sb\n", strlen) == 0)
@@ -41,61 +38,74 @@ void	do_instruction_based_on_input(const char *instruction,
 	else if (ft_strncmp(instruction, "rrr\n", strlen) == 0)
 		do_rrr(stack_a, stack_b);
 	else
+		return (0);
+	return (1);
+}
+
+void	do_instruction_based_on_input(const char *instruction,
+		t_stack **stack_a, t_stack **stack_b)
+{
+	size_t	strlen;
+	int		valid;
+
+	strlen = ft_strlen(instruction);
+	valid = do_instruction_if_valid(instruction, strlen, stack_a, stack_b);
+	if (!valid)
 	{
 		delete_stack(*stack_b);
 		free_n_exit(*stack_a);
 	}
 }
 
-static int	count_words(char const *str)
-{
-	int	count;
-	int	flag;
+// static int	count_words(char const *str)
+// {
+// 	int	count;
+// 	int	flag;
 
-	count = 0;
-	flag = 1;
-	while (*str)
-	{
-		if (*str != ' ' && flag == 1)
-		{
-			count++;
-			flag = 0;
-		}
-		if (*str == ' ')
-			flag = 1;
-		str++;
-	}
-	return (count);
-}
+// 	count = 0;
+// 	flag = 1;
+// 	while (*str)
+// 	{
+// 		if (*str != ' ' && flag == 1)
+// 		{
+// 			count++;
+// 			flag = 0;
+// 		}
+// 		if (*str == ' ')
+// 			flag = 1;
+// 		str++;
+// 	}
+// 	return (count);
+// }
 
-static void	check_n_add_arg_to_stack(int argc, char **argv, int i,
-		t_stack **stack_a)
-{
-	char	**str_array;
-	int		j;
+// static void	check_n_add_arg_to_stack(int argc, char **argv, int i,
+// 		t_stack **stack_a)
+// {
+// 	char	**str_array;
+// 	int		j;
 
-	if (count_words(argv[i]) > 1)
-	{
-		str_array = ft_split(argv[i], ' ');
-		j = 0;
-		while (str_array[j])
-		{
-			check_valid_arg(str_array[j], *stack_a);
-			ft_lstadd_back_d(stack_a, ft_lstnew_d(ft_atoi(str_array[j])));
-			free(str_array[j]);
-			j++;
-		}
-		free(str_array[j]);
-	}
-	else if (count_words(argv[i]) == 1)
-	{
-		check_valid_arg(argv[i], *stack_a);
-		if (argc >= 3)
-			ft_lstadd_back_d(stack_a, ft_lstnew_d(ft_atoi(argv[i])));
-	}
-	else if (count_words(argv[i]) == 0)
-		free_n_exit(*stack_a);
-}
+// 	if (count_words(argv[i]) > 1)
+// 	{
+// 		str_array = ft_split(argv[i], ' ');
+// 		j = 0;
+// 		while (str_array[j])
+// 		{
+// 			check_valid_arg(str_array[j], *stack_a);
+// 			ft_lstadd_back_d(stack_a, ft_lstnew_d(ft_atoi(str_array[j])));
+// 			free(str_array[j]);
+// 			j++;
+// 		}
+// 		free(str_array[j]);
+// 	}
+// 	else if (count_words(argv[i]) == 1)
+// 	{
+// 		check_valid_arg(argv[i], *stack_a);
+// 		if (argc >= 3)
+// 			ft_lstadd_back_d(stack_a, ft_lstnew_d(ft_atoi(argv[i])));
+// 	}
+// 	else if (count_words(argv[i]) == 0)
+// 		free_n_exit(*stack_a);
+// }
 
 int	main(int argc, char **argv)
 {

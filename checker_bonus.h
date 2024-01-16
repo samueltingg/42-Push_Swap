@@ -43,6 +43,11 @@ t_stack				*ft_lstlast_d(t_stack *lst);
 void				check_valid_arg(char *str, t_stack *stack);
 void				free_n_exit(t_stack *ptr);
 
+// CREATE STACK
+int					count_words(char const *str);
+void				check_n_add_arg_to_stack(int argc, char **argv, int i,
+						t_stack **stack_a);
+
 /**
  * @brief when encounter duplicates, prints "Error\n" & exit program.
  */

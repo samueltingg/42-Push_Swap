@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:07:01 by sting             #+#    #+#             */
-/*   Updated: 2024/01/16 14:00:49 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/16 17:22:52 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,11 @@ void				free_n_exit(t_stack *ptr);
  */
 void				check_duplicates(t_stack *head);
 int					is_sorted(t_stack *stack);
+
+// CREATE STACK
+int					count_words(char const *str);
+void				check_n_add_arg_to_stack(int argc, char **argv, int i,
+						t_stack **stack_a);
 
 // INSTRUCTIONS
 /**

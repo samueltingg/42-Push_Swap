@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:08:25 by sting             #+#    #+#             */
-/*   Updated: 2024/01/16 17:17:15 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/17 08:49:30 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	count_words(char const *str)
 	count = 0;
 	flag = 1;
 	while (*str)
-	{ 
+	{
 		if (*str != ' ' && flag == 1)
 		{
 			count++;

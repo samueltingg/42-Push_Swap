@@ -6,7 +6,7 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:50 by sting             #+#    #+#             */
-/*   Updated: 2024/01/17 09:28:27 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/17 10:03:46 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,6 @@ int	main(int argc, char **argv)
 	}
 	check_duplicates(stack_a);
 	checker(&stack_a, &stack_b);
-	ft_printf("input address: %p\n", stack_a);
 	delete_stack(stack_a);
 	delete_stack(stack_b);
 	exit(0);

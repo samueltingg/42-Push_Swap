@@ -6,11 +6,11 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:08:25 by sting             #+#    #+#             */
-/*   Updated: 2024/01/17 08:49:30 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/22 12:32:55 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include ".././includes/push_swap.h"
 
 int	count_words(char const *str)
 {

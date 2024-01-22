@@ -6,11 +6,11 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 13:34:40 by sting             #+#    #+#             */
-/*   Updated: 2024/01/16 15:13:08 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/22 12:35:42 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include ".././includes/checker_bonus.h"
 
 void	do_pa(t_stack **stack_b, t_stack **stack_a)
 {

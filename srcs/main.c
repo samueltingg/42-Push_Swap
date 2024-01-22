@@ -6,11 +6,11 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:50 by sting             #+#    #+#             */
-/*   Updated: 2024/01/17 08:29:20 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/22 12:33:15 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include ".././includes/push_swap.h"
 
 void	sort(t_stack **stack_a, t_stack **stack_b)
 {

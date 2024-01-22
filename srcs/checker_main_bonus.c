@@ -6,11 +6,11 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 12:56:50 by sting             #+#    #+#             */
-/*   Updated: 2024/01/17 10:03:46 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/22 12:38:43 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../checker_bonus.h"
+#include ".././includes/checker_bonus.h"
 
 int	do_instruction_if_valid(const char *instruction, int strlen,
 		t_stack **stack_a, t_stack **stack_b)

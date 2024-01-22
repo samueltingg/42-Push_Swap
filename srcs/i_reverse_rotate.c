@@ -6,11 +6,11 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 13:13:22 by sting             #+#    #+#             */
-/*   Updated: 2024/01/16 15:43:34 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/22 12:33:59 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include ".././includes/push_swap.h"
 
 void	reverse_rotate(t_stack **stack)
 {

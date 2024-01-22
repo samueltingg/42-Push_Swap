@@ -6,11 +6,11 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:22:04 by sting             #+#    #+#             */
-/*   Updated: 2024/01/16 11:13:47 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/22 12:32:50 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include ".././includes/push_swap.h"
 
 long	ft_atol(const char *str)
 {

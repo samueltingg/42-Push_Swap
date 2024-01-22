@@ -6,11 +6,11 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:08:25 by sting             #+#    #+#             */
-/*   Updated: 2024/01/18 10:34:08 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/22 12:34:27 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include ".././includes/push_swap.h"
 
 t_stack	*starting_node(t_stack *stack_a, t_stack *stack_b, enum e_loc cur_loc)
 {
@@ -34,17 +34,17 @@ void	move_nbr_based_on_index(t_pv pivot, t_split_dest *dest,
 	t_stack	*node;
 
 	node = starting_node(*stack_a, *stack_b, dest->cur_loc);
-	if (node->index > pivot.large) // MAX
+	if (node->index > pivot.large)
 	{
 		move_from_to(dest->cur_loc, dest->max.loc, stack_a, stack_b);
 		dest->max.size++;
 	}
-	else if (node->index > pivot.small && node->index <= pivot.large) // MID
+	else if (node->index > pivot.small && node->index <= pivot.large)
 	{
 		move_from_to(dest->cur_loc, dest->mid.loc, stack_a, stack_b);
 		dest->mid.size++;
 	}
-	else if (node->index <= pivot.small) // MIN
+	else if (node->index <= pivot.small)
 	{
 		move_from_to(dest->cur_loc, dest->min.loc, stack_a, stack_b);
 		dest->min.size++;

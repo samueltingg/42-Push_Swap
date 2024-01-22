@@ -6,14 +6,14 @@
 /*   By: sting <sting@student.42kl.edu.my>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/10 16:07:01 by sting             #+#    #+#             */
-/*   Updated: 2024/01/16 17:22:52 by sting            ###   ########.fr       */
+/*   Updated: 2024/01/22 12:29:52 by sting            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "./libft/libft.h"
+# include ".././libft/libft.h"
 # include <limits.h>
 # include <stdio.h>
 # include <stdlib.h>

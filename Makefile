@@ -52,11 +52,6 @@ NAME = $(PUSH_SWAP) $(CHECKER)
 PUSH_SWAP = push_swap
 CHECKER = checker
 
-# Include checker_bonus.h only when building the bonus target
-# ifeq ($(MAKECMDGOALS),bonus) not needed?
-#     INCS += -I./checker_bonus.h
-# endif
-
 all:  $(OBJDIR) $(PUSH_SWAP)
 
 bonus: $(OBJDIR) $(CHECKER) 
@@ -74,7 +69,7 @@ $(CHECKER): $(BONUS_OBJS)
 
 
 $(OBJDIR)%.o: $(SRCDIR)%.c
-	$(CC) $(CFLAGS) $(HEADER_FILES) -c $< -o $@ 
+	$(CC) $(CFLAGS) -c $< -o $@ $(INCS) 
 
 RM = rm -f
 

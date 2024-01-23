@@ -84,4 +84,6 @@ fclean: clean
 
 re: fclean all
 
+norm: norminette -R CheckDefine | grep "Error"
+
 .PHONY: all clean fclean re bonus
